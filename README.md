@@ -2,6 +2,6 @@
 CZ2002 Project - Student Course Registration And Mark Entry Application (SCRAME)
 
 ## TODO
-* Complete function 5 - 10
+* Complete function 6 - 10
 * Improve UI/interactivity
 * Use HashMap instead of ArrayList in the main class to improve search speed
