@@ -1,12 +1,15 @@
 package edu.university.students;
-import java.util.ArrayList;
+
+import java.io.*;
+import java.util.*;
 
 import edu.university.courses.Course;
 
-public class Student {
+public class Student implements Serializable{
 	private String studentName;
 	private ArrayList<Course> coursesRegistered = new ArrayList<Course>();
-	
+	private static final long serialVersionUID = 9L;
+
 	public Student(String studentName) {
 		this.studentName = studentName;
 	}

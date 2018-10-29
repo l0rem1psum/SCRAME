@@ -1,11 +1,14 @@
 package edu.university.professors;
+
+import java.io.*;
 import edu.university.courses.*;
 import java.util.*;
 
 
-public class Professor {
+public class Professor implements Serializable{
 	private String name;
 	ArrayList<Course> coursesInCharge = new ArrayList<>();
+	private static final long serialVersionUID = 8L;
 	
 	public Professor(String name) {
 		this.name = name;

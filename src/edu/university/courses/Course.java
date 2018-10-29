@@ -1,14 +1,16 @@
 package edu.university.courses;
 
+import java.io.*;
 import edu.university.students.*;
 import edu.university.professors.*;
 import java.util.*;
 
-public class Course {
+public class Course implements Serializable{
 	private String courseName;
 	private Professor courseCoordinator;
 	private ArrayList<CourseComponent> courseComponents = new ArrayList<CourseComponent>();
-
+	private static final long serialVersionUID = 2L;
+	
 	public Course(String courseName, Professor courseCoordinator, int lectureVacancies) {
 		// Since all courses have lectures.
 		// Before constructing the Course object, ask whether there is tutorials or labs
@@ -18,7 +20,6 @@ public class Course {
 		
 		CourseComponent lecture = new Lecture(lectureVacancies);
 		courseComponents.add(lecture);
-
 	}
 	
 	public Course(String courseName, Professor courseCoordinator, int lectureVacancies, int numberOfTutorialGroups, int slotsPerTutGroup) {
