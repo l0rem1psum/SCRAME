@@ -39,12 +39,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			System.out.println("| 4 | Check available slots in a class |  9 | Print course statistics                      |");
 			System.out.println("| 5 | Print student list               | 10 | Print student transcript                     |");
 			System.out.println("+---+----------------------------------+----+----------------------------------------------+");
+			System.out.println("|                                                         (0): Save the system  (-1): Exit |");
+			System.out.println("+------------------------------------------------------------------------------------------+");
 			System.out.println("Please enter your option:");
 			option = sc.nextInt();
 			switch (option) {
-			case -1:
-				this.saveSystem();
-				break;
 			case 1:
 				this.addStudent();
 				break;
@@ -63,6 +62,13 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				break;
 //			case 6:
 //				this.enterCourseWeightage();
+			case 0:
+				this.saveSystem();
+				break;
+			case -1:
+				System.out.println("Shutting Down SCRAME...");
+				System.out.println("BYE!");
+				System.exit(0);
 			}
 		} while (option != -1);
 	}
@@ -144,6 +150,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		}
 		if (this.courseList.size() == 0) {
 			System.out.println("Sorry! There are currently no courses available for registering. Please add courses first.");
+			return false;
 		}
 		
 		System.out.println("Please enter the name of the student for which you want to register course for:");
