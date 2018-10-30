@@ -9,6 +9,7 @@ public class Course implements Serializable{
 	private String courseName;
 	private Professor courseCoordinator;
 	private ArrayList<CourseComponent> courseComponents = new ArrayList<CourseComponent>();
+	private HashMap<String, Double> assessmentComponent;
 	private static final long serialVersionUID = 2L;
 	
 	public Course(String courseName, Professor courseCoordinator, int lectureVacancies) {
@@ -63,6 +64,10 @@ public class Course implements Serializable{
 			bn &= cc.haveVacancies();
 		}
 		return bn;
+	}
+	
+	public void setAssessmentComponent(HashMap<String, Double> assessmentComponent) {
+		this.assessmentComponent = assessmentComponent;
 	}
 	
 	public static void printCourseSlotsHead() {

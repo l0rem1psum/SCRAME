@@ -24,14 +24,13 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			StudentCourseRegistrationAndMarkEntryApplication newSCRAME = new StudentCourseRegistrationAndMarkEntryApplication();
 			newSCRAME.execute();
 		}
-		
 	}
 
 	public void execute() {
 		int option;
 		do {
 			System.out.println("+------------------------------------------------------------------------------------------+");
-			System.out.println("| Student Course Registration And Mark Entry Application (SCRAME) Menu                     |");
+			System.out.println("|           Student Course Registration And Mark Entry Application (SCRAME) Menu           |");
 			System.out.println("+---+----------------------------------+----+----------------------------------------------+");
 			System.out.println("| 1 | Add a student                    |  6 | Enter course assessment components weightage |");
 			System.out.println("| 2 | Add a course                     |  7 | Enter coursework mark                        |");
@@ -60,8 +59,8 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			case 5:
 				this.printStudentList();
 				break;
-//			case 6:
-//				this.enterCourseWeightage();
+			case 6:
+				this.enterCourseWeightage();
 			case 0:
 				this.saveSystem();
 				break;
@@ -305,20 +304,48 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		}	
 	}
 	
-//	public boolean enterCourseWeightage() {
-//		System.out.println("Please choose the course listed below:");
-//		this.printAllCourses();
-//		
-//		String courseName = sc.next();
-//		while(!this.courseExists(courseName)) {
-//			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
-//			System.out.println("Please choose the course listed below:");
-//			this.printAllCourses();
-//			courseName = sc.next();
-//		}
-//		
-//		Course course = this.getCourse(courseName);
-//	}
+	public void enterCourseWeightage() {
+		System.out.println("Please choose the course listed below:");
+		this.printAllCourses();
+		
+		String courseName = sc.next();
+		while(!this.courseExists(courseName)) {
+			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
+			System.out.println("Please choose the course listed below:");
+			this.printAllCourses();
+			courseName = sc.next();
+		}
+		
+		Course course = this.getCourse(courseName);
+		HashMap<String, Double> assessmentComponent = new HashMap<>();
+		
+		System.out.println("Please enter the exam weightage:");
+		double examWeightage = sc.nextDouble();
+		while(examWeightage <= 0 | examWeightage >= 100) {
+			System.out.println("Sorry! Please enter a valid exam weightage!");
+			examWeightage = sc.nextDouble();
+		}
+		assessmentComponent.put("Examination", examWeightage);
+		
+		boolean hasSubcomponents;
+		System.out.println("Does coursework have subcomponents? (true/false)");
+		hasSubcomponents = sc.nextBoolean();
+		if (!hasSubcomponents) {
+			assessmentComponent.put("Coursework", 100 - examWeightage);
+			course.setAssessmentComponent(assessmentComponent);
+		} else {
+			double assignmentWeightage;
+			System.out.println("What is the weightage of assignment?");
+			assignmentWeightage = sc.nextDouble();
+			while(assignmentWeightage <= 0 | assignmentWeightage >= 100) {
+				System.out.println("Sorry! Please enter a valid assignment weightage!");
+				assignmentWeightage = sc.nextDouble();
+			}
+			assessmentComponent.put("Assignment", (100 - examWeightage) * assignmentWeightage / 100);
+			assessmentComponent.put("Class Participation", (100 - examWeightage) * (100 - assignmentWeightage) / 100);
+			course.setAssessmentComponent(assessmentComponent);
+		}
+	}
 	
 	private boolean studentExists(String studentName) {
 		for (Student s : studentsRegistered) {
