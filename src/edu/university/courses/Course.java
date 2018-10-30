@@ -67,8 +67,16 @@ public class Course implements Serializable{
 		return bn;
 	}
 	
+	public HashMap<String, Integer> getAssessmentComponents(){
+		return this.assessmentComponents;
+	}
+	
 	public void setAssessmentComponents(HashMap<String, Integer> assessmentComponents) {
 		this.assessmentComponents = assessmentComponents;
+	}
+	
+	public HashMap<String, Integer> getCourseworkComponents(){
+		return this.courseworkComponents;
 	}
 	
 	public void setCourseworkSubcomponents(HashMap<String, Integer> courseworkComponents) {

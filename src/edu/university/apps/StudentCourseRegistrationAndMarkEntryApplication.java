@@ -340,7 +340,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			HashMap<String, Integer> courseworkComponents = new HashMap<>();;
 			
 			System.out.println("Please enter the number of subcomponents:");
-			numberOfSubcomponents = sc.nextInt(); // User may enter -1, 0, 1
+			numberOfSubcomponents = sc.nextInt(); // Users may enter -1, 0, 1
 			
 			int weightageSum = 0;
 			while(weightageSum != 100) {
@@ -350,7 +350,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					System.out.printf("What is the name of subcomponent %d?\n", i + 1);
 					subcomponentName = sc.next();
 					System.out.printf("What is the weightage of %s (as a percentage of coursework)\n", subcomponentName);
-					subcomponentWeightage = sc.nextInt();
+					subcomponentWeightage = sc.nextInt(); // Users may enter negative values.
 					courseworkComponents.put(subcomponentName, subcomponentWeightage);
 				}
 				
