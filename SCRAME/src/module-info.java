@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author sunsh
- *
- */
-module SCRAME {
-}
