@@ -4,24 +4,33 @@ import edu.university.students.*;
 import edu.university.professors.*;
 import edu.university.courses.*;
 import java.util.*;
+import java.io.*;
 
-public class StudentCourseRegistrationAndMarkEntryApplication {
+public class StudentCourseRegistrationAndMarkEntryApplication implements Serializable{
 	private ArrayList<Course> courseList = new ArrayList<>();
 	private ArrayList<Student> studentsRegistered = new ArrayList<>();
 	private ArrayList<Professor> teachingProfessors = new ArrayList<>();
-
+	private static final long serialVersionUID = 1L;
+	
 	static final Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		StudentCourseRegistrationAndMarkEntryApplication SCRAME = new StudentCourseRegistrationAndMarkEntryApplication();
-		SCRAME.execute();
+		StudentCourseRegistrationAndMarkEntryApplication SCRAME = loadSystem();
+		if (SCRAME != null) {
+			SCRAME.execute();
+		} else {
+			System.out.println("System File Not Found!");
+			System.out.println("Initializing New System!");
+			StudentCourseRegistrationAndMarkEntryApplication newSCRAME = new StudentCourseRegistrationAndMarkEntryApplication();
+			newSCRAME.execute();
+		}
 	}
 
 	public void execute() {
 		int option;
 		do {
 			System.out.println("+------------------------------------------------------------------------------------------+");
-			System.out.println("| Student Course Registration And Mark Entry Application (SCRAME) Menu                     |");
+			System.out.println("|           Student Course Registration And Mark Entry Application (SCRAME) Menu           |");
 			System.out.println("+---+----------------------------------+----+----------------------------------------------+");
 			System.out.println("| 1 | Add a student                    |  6 | Enter course assessment components weightage |");
 			System.out.println("| 2 | Add a course                     |  7 | Enter coursework mark                        |");
@@ -29,6 +38,8 @@ public class StudentCourseRegistrationAndMarkEntryApplication {
 			System.out.println("| 4 | Check available slots in a class |  9 | Print course statistics                      |");
 			System.out.println("| 5 | Print student list               | 10 | Print student transcript                     |");
 			System.out.println("+---+----------------------------------+----+----------------------------------------------+");
+			System.out.println("|                                                         (0): Save the system  (-1): Exit |");
+			System.out.println("+------------------------------------------------------------------------------------------+");
 			System.out.println("Please enter your option:");
 			option = sc.nextInt();
 			switch (option) {
@@ -48,7 +59,15 @@ public class StudentCourseRegistrationAndMarkEntryApplication {
 			case 5:
 				this.printStudentList();
 				break;
-
+			case 6:
+				this.enterCourseWeightage();
+			case 0:
+				this.saveSystem();
+				break;
+			case -1:
+				System.out.println("Shutting Down SCRAME...");
+				System.out.println("BYE!");
+				System.exit(0);
 			}
 		} while (option != -1);
 	}
@@ -130,6 +149,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication {
 		}
 		if (this.courseList.size() == 0) {
 			System.out.println("Sorry! There are currently no courses available for registering. Please add courses first.");
+			return false;
 		}
 		
 		System.out.println("Please enter the name of the student for which you want to register course for:");
@@ -284,6 +304,49 @@ public class StudentCourseRegistrationAndMarkEntryApplication {
 		}	
 	}
 	
+	public void enterCourseWeightage() {
+		System.out.println("Please choose the course listed below:");
+		this.printAllCourses();
+		
+		String courseName = sc.next();
+		while(!this.courseExists(courseName)) {
+			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
+			System.out.println("Please choose the course listed below:");
+			this.printAllCourses();
+			courseName = sc.next();
+		}
+		
+		Course course = this.getCourse(courseName);
+		HashMap<String, Double> assessmentComponent = new HashMap<>();
+		
+		System.out.println("Please enter the exam weightage:");
+		double examWeightage = sc.nextDouble();
+		while(examWeightage <= 0 | examWeightage >= 100) {
+			System.out.println("Sorry! Please enter a valid exam weightage!");
+			examWeightage = sc.nextDouble();
+		}
+		assessmentComponent.put("Examination", examWeightage);
+		
+		boolean hasSubcomponents;
+		System.out.println("Does coursework have subcomponents? (true/false)");
+		hasSubcomponents = sc.nextBoolean();
+		if (!hasSubcomponents) {
+			assessmentComponent.put("Coursework", 100 - examWeightage);
+			course.setAssessmentComponent(assessmentComponent);
+		} else {
+			double assignmentWeightage;
+			System.out.println("What is the weightage of assignment?");
+			assignmentWeightage = sc.nextDouble();
+			while(assignmentWeightage <= 0 | assignmentWeightage >= 100) {
+				System.out.println("Sorry! Please enter a valid assignment weightage!");
+				assignmentWeightage = sc.nextDouble();
+			}
+			assessmentComponent.put("Assignment", (100 - examWeightage) * assignmentWeightage / 100);
+			assessmentComponent.put("Class Participation", (100 - examWeightage) * (100 - assignmentWeightage) / 100);
+			course.setAssessmentComponent(assessmentComponent);
+		}
+	}
+	
 	private boolean studentExists(String studentName) {
 		for (Student s : studentsRegistered) {
 			if (studentName.equals(s.getStudentName())) {
@@ -345,5 +408,37 @@ public class StudentCourseRegistrationAndMarkEntryApplication {
 			System.out.printf("| %-11s | %-18s |\n", c.getCourseName(), c.getCourseCoordinatorName());
 		}
 		System.out.println("+-------------+--------------------+");
+	}
+	
+	public void saveSystem() {
+		try {
+			FileOutputStream fileOut = new FileOutputStream("Sys.ser");
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
+			out.writeObject(this);
+			out.close();
+			fileOut.close();
+			System.out.printf("Saved!\n");
+		} catch (IOException i) {
+			i.printStackTrace();
+		}
+	}
+	
+	public static StudentCourseRegistrationAndMarkEntryApplication loadSystem() {
+		StudentCourseRegistrationAndMarkEntryApplication s = null;
+		try {
+			FileInputStream fileIn = new FileInputStream("Sys.ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			s = (StudentCourseRegistrationAndMarkEntryApplication) in.readObject();
+			in.close();
+			fileIn.close();
+			return s;
+		} catch (IOException i) {
+			i.printStackTrace();
+			return s;
+		} catch (ClassNotFoundException c) {
+			c.printStackTrace();
+			return s;
+		}
+		
 	}
 }

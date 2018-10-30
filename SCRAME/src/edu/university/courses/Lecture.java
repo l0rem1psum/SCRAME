@@ -4,7 +4,8 @@ import edu.university.students.Student;
 
 public class Lecture extends CourseComponent {
 	// This Lecture class assumes there is only one Lecture group as it is normally the case.
-
+	private static final long serialVersionUID = 4L;
+	
 	public Lecture(int numberOfVacancies) {
 		super("Lecture", 1);
 		this.listOfGroups.set(0, new Group(numberOfVacancies));
