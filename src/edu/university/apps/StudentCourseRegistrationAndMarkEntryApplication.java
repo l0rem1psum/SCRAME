@@ -61,6 +61,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				break;
 			case 6:
 				this.enterCourseWeightage();
+				break;
 			case 0:
 				this.saveSystem();
 				break;
@@ -317,33 +318,51 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		}
 		
 		Course course = this.getCourse(courseName);
-		HashMap<String, Double> assessmentComponent = new HashMap<>();
+		HashMap<String, Integer> assessmentComponents = new HashMap<>();
 		
 		System.out.println("Please enter the exam weightage:");
-		double examWeightage = sc.nextDouble();
+		int examWeightage = sc.nextInt();
 		while(examWeightage <= 0 | examWeightage >= 100) {
 			System.out.println("Sorry! Please enter a valid exam weightage!");
-			examWeightage = sc.nextDouble();
+			examWeightage = sc.nextInt();
 		}
-		assessmentComponent.put("Examination", examWeightage);
+		assessmentComponents.put("Examination", examWeightage);
+		assessmentComponents.put("Coursework", 100 - examWeightage);
+		course.setAssessmentComponents(assessmentComponents);
 		
 		boolean hasSubcomponents;
 		System.out.println("Does coursework have subcomponents? (true/false)");
 		hasSubcomponents = sc.nextBoolean();
-		if (!hasSubcomponents) {
-			assessmentComponent.put("Coursework", 100 - examWeightage);
-			course.setAssessmentComponent(assessmentComponent);
-		} else {
-			double assignmentWeightage;
-			System.out.println("What is the weightage of assignment?");
-			assignmentWeightage = sc.nextDouble();
-			while(assignmentWeightage <= 0 | assignmentWeightage >= 100) {
-				System.out.println("Sorry! Please enter a valid assignment weightage!");
-				assignmentWeightage = sc.nextDouble();
+		if (hasSubcomponents) {
+			int numberOfSubcomponents;
+			int subcomponentWeightage;
+			String subcomponentName;
+			HashMap<String, Integer> courseworkComponents = new HashMap<>();;
+			
+			System.out.println("Please enter the number of subcomponents:");
+			numberOfSubcomponents = sc.nextInt(); // User may enter -1, 0, 1
+			
+			int weightageSum = 0;
+			while(weightageSum != 100) {
+				courseworkComponents = new HashMap<>();
+				weightageSum = 0;
+				for (int i = 0; i < numberOfSubcomponents; i++) {
+					System.out.printf("What is the name of subcomponent %d?\n", i + 1);
+					subcomponentName = sc.next();
+					System.out.printf("What is the weightage of %s (as a percentage of coursework)\n", subcomponentName);
+					subcomponentWeightage = sc.nextInt();
+					courseworkComponents.put(subcomponentName, subcomponentWeightage);
+				}
+				
+				for (Integer val: courseworkComponents.values()) {
+					weightageSum += val;
+				}
+				
+				if (weightageSum != 100) {
+					System.out.println("Sorry, please check your input. Please enter again!");
+				}
 			}
-			assessmentComponent.put("Assignment", (100 - examWeightage) * assignmentWeightage / 100);
-			assessmentComponent.put("Class Participation", (100 - examWeightage) * (100 - assignmentWeightage) / 100);
-			course.setAssessmentComponent(assessmentComponent);
+			course.setCourseworkSubcomponents(courseworkComponents);
 		}
 	}
 	
@@ -439,6 +458,5 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			c.printStackTrace();
 			return s;
 		}
-		
 	}
 }
