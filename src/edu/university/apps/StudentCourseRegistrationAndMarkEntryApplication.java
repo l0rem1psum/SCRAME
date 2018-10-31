@@ -62,6 +62,9 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			case 6:
 				this.enterCourseWeightage();
 				break;
+			case 8:
+				this.enterExamMark();
+				break;
 			case 0:
 				this.saveSystem();
 				break;
@@ -364,6 +367,10 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			}
 			course.setCourseworkSubcomponents(courseworkComponents);
 		}
+	}
+	
+	public void enterExamMark() {
+		
 	}
 	
 	private boolean studentExists(String studentName) {

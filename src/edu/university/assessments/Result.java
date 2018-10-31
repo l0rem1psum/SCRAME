@@ -1,5 +1,7 @@
 package edu.university.assessments;
 
-public class Result{
+import java.util.*;
 
+public class Result{
+	private ArrayList<Examinable> examinableAssessments  = new ArrayList<>();
 }
