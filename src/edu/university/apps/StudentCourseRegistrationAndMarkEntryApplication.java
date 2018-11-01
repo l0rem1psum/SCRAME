@@ -3,13 +3,14 @@ package edu.university.apps;
 import edu.university.students.*;
 import edu.university.professors.*;
 import edu.university.courses.*;
+import edu.university.assessments.*;
 import java.util.*;
 import java.io.*;
 
 public class StudentCourseRegistrationAndMarkEntryApplication implements Serializable{
-	private ArrayList<Course> courseList = new ArrayList<>();
-	private ArrayList<Student> studentsRegistered = new ArrayList<>();
-	private ArrayList<Professor> teachingProfessors = new ArrayList<>();
+	private HashMap<String, Course> courseList = new HashMap<>();
+	private HashMap<String, Student> studentsRegistered = new HashMap<>();
+	private HashMap<String, Professor> teachingProfessors = new HashMap<>();
 	private static final long serialVersionUID = 1L;
 	
 	static final Scanner sc = new Scanner(System.in);
@@ -84,7 +85,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			return false;
 		} else {
 			Student newStudent = new Student(studentName);
-			this.studentsRegistered.add(newStudent);
+			this.studentsRegistered.put(studentName, newStudent);
 			return true;
 		}
 	}
@@ -112,9 +113,8 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			System.out.println("Does this course have tutorials? (true/false)");
 			haveTutorials = sc.nextBoolean();
 			if (haveTutorials != true) {
-
 				c = new Course(courseName, p, lectureVacancies);
-				this.courseList.add(c);
+				this.courseList.put(courseName, c);
 				p.addCourse(c);
 				return true;
 			} else {
@@ -128,7 +128,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			haveLabs = sc.nextBoolean();
 			if (haveLabs != true) {
 				c = new Course(courseName, p, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup);
-				this.courseList.add(c);
+				this.courseList.put(courseName, c);
 				p.addCourse(c);
 				return true;
 			} else {
@@ -138,7 +138,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				slotsPerLabGroup = sc.nextInt();
 				c = new Course(courseName, p, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup,
 						numberOfLabGroups, slotsPerLabGroup);
-				this.courseList.add(c);
+				this.courseList.put(courseName, c);
 				p.addCourse(c);
 				return true;
 			}
@@ -166,25 +166,14 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		
 		Student s = this.getStudent(studentName);
 		
-		System.out.println("Please choose the course listed below:");
-		this.printAllCourses();
-		
-		String courseName = sc.next();
-		while(!this.courseExists(courseName)) {
-			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
-			System.out.println("Please choose the course listed below:");
-			this.printAllCourses();
-			courseName = sc.next();
-		}
-		
-		Course course = this.getCourse(courseName);
+		Course course = this.selectCourse();
 		
 		if (s.hasCourse(course)) {
 			System.out.printf("Sorry! The student you entered has already registered course %s.\n", course.getCourseName());
 			return false;
 		}
 		
-		System.out.printf("The vacancies information of course %s is as follows:\n", courseName);
+		System.out.printf("The vacancies information of course %s is as follows:\n", course.getCourseName());
 		Course.printCourseSlotsHead();
 		course.printCourseSlots();
 		
@@ -245,20 +234,10 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			return;
 		}
 		
-		System.out.println("Which course do you want to check the available slots?");
-		String courseName = sc.next();
-		while(!this.courseExists(courseName)) {
-			System.out.println("Sorry! The course you entered does not exist. Please enter again!");
-			courseName = sc.next();
-		}
+		Course course = this.selectCourse();
+		Course.printCourseSlotsHead();
+		course.printCourseSlots();
 
-		for (Course c: this.courseList) {
-			if (c.getCourseName().equals(courseName)) {
-				Course.printCourseSlotsHead();
-				c.printCourseSlots();
-			}
-		}
-		
 	}
 	
 	public void printStudentList() {
@@ -267,13 +246,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			return;
 		}
 		
-		System.out.println("Please enter the course name for which you want to check the student list.");
-		String courseName = sc.next();
-		while(!this.courseExists(courseName)) {
-			System.out.println("Please make sure you only enter the course name that is already registered in the system! Please enter again!");
-			courseName = sc.next();
-		}
-		Course course = this.getCourse(courseName);
+		Course course = this.selectCourse();
 		
 		System.out.println("Do you want to?");
 		System.out.println("+---+------------------------------------+");
@@ -309,18 +282,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	}
 	
 	public void enterCourseWeightage() {
-		System.out.println("Please choose the course listed below:");
-		this.printAllCourses();
-		
-		String courseName = sc.next();
-		while(!this.courseExists(courseName)) {
-			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
-			System.out.println("Please choose the course listed below:");
-			this.printAllCourses();
-			courseName = sc.next();
-		}
-		
-		Course course = this.getCourse(courseName);
+		Course course = this.selectCourse();
 		HashMap<String, Integer> assessmentComponents = new HashMap<>();
 		
 		System.out.println("Please enter the exam weightage:");
@@ -370,67 +332,93 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	}
 	
 	public void enterExamMark() {
+		if (this.studentsRegistered.size() == 0) {
+			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
+			return;
+		}
+		if (this.courseList.size() == 0) {
+			System.out.println("Sorry! There are currently no courses available for registering. Please add courses first.");
+			return;
+		}
+		
+		Course course = this.selectCourse();
+		if (course.hasWeightageInfo()) {
+			if (course.getRegisteredStudents().size() == 0) {
+				System.out.printf("Sorry! There are currently no student who has registered the course %s.\n", course.getCourseName());
+				return;
+			} else {
+				for (Student s: course.getRegisteredStudents()) {
+					Result r = s.getResultForCourse(course);
+					System.out.printf("What is the examination score for %s? (Enter -1 to finish)\n", s.getStudentName()); // Users may provide invalid input
+					int examMark = sc.nextInt();
+					if (examMark == -1) {
+						return;
+					} else {
+						Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
+						r.addComponent("Examination", exam);
+					}
+				}
+			}		
+		} else {
+			System.out.println("Sorry! This course currently does not have assessment component weightage information recorded in the system!");
+			System.out.printf("Please go to the main menu and enter the assessment component weightage information for %s.\n", course.getCourseName());
+		}	
+	}
+	
+	public void enterCourseworkMark() {
 		
 	}
 	
 	private boolean studentExists(String studentName) {
-		for (Student s : studentsRegistered) {
-			if (studentName.equals(s.getStudentName())) {
-				return true;
-			}
-		}
-		return false;
+		return this.studentsRegistered.get(studentName) != null ? true : false;
 	}
 
 	private boolean courseExists(String courseName) {
-		for (Course c : this.courseList) {
-			if (courseName.equals(c.getCourseName())) {
-				return true;
-			}
-		}
-		return false;
+		return this.courseList.get(courseName) != null ? true : false;
 	}
 
 	private Professor getProfessor(String profName) {
-		for (Professor p : this.teachingProfessors) {
-			if (profName.equals(p.getName())) {
-				return p;
-			}
+		Professor prof = this.teachingProfessors.get(profName);
+		if (prof != null) {
+			return prof;
+		} else {
+			// In case the named Professor is not in the current list of professors,
+			// create a new professor object and store it in the list.
+			prof = new Professor(profName);
+			this.teachingProfessors.put(profName, prof);
+			return prof;
 		}
-		// In case the named Professor is not in the current list of professors,
-		// create a new professor object and store it in the list.
-		Professor newProf = new Professor(profName);
-		this.teachingProfessors.add(newProf);
-		return newProf;
 	}
 
 	private Student getStudent(String studentName) {
-		for (Student s: this.studentsRegistered) {
-			if (studentName.equals(s.getStudentName())) {
-				return s;
-			}
-		}
-		Student newStudent = new Student(studentName);
-		this.studentsRegistered.add(newStudent);
-		return newStudent;
+		return this.studentsRegistered.get(studentName);
 	}
 	
 	private Course getCourse(String courseName) {
-		// This get method is different form the other getStudent() and getProfessor() method.
-		// Courses should have already been added to the system before getting them.
-		for (Course c: this.courseList) {
-			if (courseName.equals(c.getCourseName())) {
-				return c;
-			}
+		return this.courseList.get(courseName);
+	}
+	
+	private Course selectCourse() {	
+		System.out.println("Please choose the course listed below:");
+		this.printAllCourses();
+		
+		String courseName = sc.next();
+		while(!this.courseExists(courseName)) {
+			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
+			System.out.println("Please choose the course listed below:");
+			this.printAllCourses();
+			courseName = sc.next();
 		}
-		return null; // This should never be returned since assumption is that the course added is always in the system.
+		
+		Course course = this.getCourse(courseName);
+		return course;
 	}
 	
 	public void printAllCourses() {
 		System.out.println("+-------------+--------------------+");
 		System.out.println("| Course Name | Course Coordinator |");
 		System.out.println("+-------------+--------------------+");
-		for (Course c : this.courseList) {
+		for (Course c : this.courseList.values()) {
 			System.out.printf("| %-11s | %-18s |\n", c.getCourseName(), c.getCourseCoordinatorName());
 		}
 		System.out.println("+-------------+--------------------+");

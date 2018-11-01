@@ -67,6 +67,10 @@ public class Course implements Serializable{
 		return bn;
 	}
 	
+	public boolean hasWeightageInfo() {
+		return !this.assessmentComponents.isEmpty();
+	}
+	
 	public HashMap<String, Integer> getAssessmentComponents(){
 		return this.assessmentComponents;
 	}
@@ -126,6 +130,21 @@ public class Course implements Serializable{
 			}
 			System.out.println("+-------------+-----------------+-----------+");
 		}
+	}
+	
+	public ArrayList<Student> getRegisteredStudents(){
+		ArrayList<Student> registeredStudents = new ArrayList<>();
+		for (int i = 0; 
+				i < (this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfSlots() - 
+						this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfVacancies());
+				i++) {
+			registeredStudents.add(this.courseComponents.get(0).getListOfGroups().get(0).getRegisteredStudents().get(0));
+		}
+		return registeredStudents;
+	}
+	
+	public int getExamWeightage() {
+		return this.assessmentComponents.get("Examination");
 	}
 	
 	public String getCourseName() {

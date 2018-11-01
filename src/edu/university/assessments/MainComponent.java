@@ -1,13 +1,20 @@
 package edu.university.assessments;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class MainComponent implements Examinable{
+public class MainComponent implements Examinable, Serializable{
 
 	private String componentName;
 	private int rawMark;
 	private int weightage;
-	private ArrayList<Subcomponents> subcomponents = new ArrayList<>();
+	private ArrayList<Subcomponent> subcomponents = new ArrayList<>();
+	
+	public MainComponent(String componentName, int weightage, int rawMark) {
+		this.componentName = componentName;
+		this.weightage = weightage;
+		this.rawMark = rawMark;
+	}
 	
 	@Override
 	public int getWeightage() {
@@ -25,7 +32,7 @@ public class MainComponent implements Examinable{
 			return (double)this.rawMark * (double)this.weightage / 100;
 		} else {
 			double mark = 0;
-			for (Subcomponents s : this.subcomponents) {
+			for (Subcomponent s : this.subcomponents) {
 				mark += s.getMark();
 			}
 			return mark;
@@ -41,7 +48,7 @@ public class MainComponent implements Examinable{
 		return !this.subcomponents.isEmpty();
 	}
 	
-	public void addSubcomponent(Subcomponents e) {
+	public void addSubcomponent(Subcomponent e) {
 		this.subcomponents.add(e);
 	}
 }

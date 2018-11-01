@@ -2,7 +2,7 @@ package edu.university.assessments;
 
 
 
-public class Subcomponents implements Examinable{
+public class Subcomponent implements Examinable{
 
 	private String subcomponentName;
 	private int subcomponentWeightage;
