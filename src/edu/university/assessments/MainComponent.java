@@ -40,7 +40,7 @@ public class MainComponent implements Examinable, Serializable{
 			for (Subcomponent s : this.subcomponents) {
 				mark += s.getMark();
 			}
-			return mark;
+			return mark * (double)this.weightage / 100;
 		}
 	}
 

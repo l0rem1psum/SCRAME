@@ -142,7 +142,7 @@ public class Course implements Serializable{
 				i < (this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfSlots() - 
 						this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfVacancies());
 				i++) {
-			registeredStudents.add(this.courseComponents.get(0).getListOfGroups().get(0).getRegisteredStudents().get(0));
+			registeredStudents.add(this.courseComponents.get(0).getListOfGroups().get(0).getRegisteredStudents().get(i));
 		}
 		return registeredStudents;
 	}

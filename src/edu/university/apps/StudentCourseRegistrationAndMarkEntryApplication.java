@@ -44,38 +44,44 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			System.out.println("Please enter your option:");
 			option = sc.nextInt();
 			switch (option) {
-			case 1:
-				this.addStudent();
-				break;
-			case 2:
-				this.addCourse();
-				this.printAllCourses();
-				break;
-			case 3:
-				this.registerStudentForCourse();
-				break;
-			case 4:
-				this.checkSlots();
-				break;
-			case 5:
-				this.printStudentList();
-				break;
-			case 6:
-				this.enterCourseWeightage();
-				break;
-			case 7:
-				this.enterCourseworkMark();
-				break;
-			case 8:
-				this.enterExamMark();
-				break;
-			case 0:
-				this.saveSystem();
-				break;
-			case -1:
-				System.out.println("Shutting Down SCRAME...");
-				System.out.println("BYE!");
-				System.exit(0);
+				case 1:
+					this.addStudent();
+					break;
+				case 2:
+					this.addCourse();
+					this.printAllCourses();
+					break;
+				case 3:
+					this.registerStudentForCourse();
+					break;
+				case 4:
+					this.checkSlots();
+					break;
+				case 5:
+					this.printStudentList();
+					break;
+				case 6:
+					this.enterCourseWeightage();
+					break;
+				case 7:
+					this.enterCourseworkMark();
+					break;
+				case 8:
+					this.enterExamMark();
+					break;
+				case 9:
+					this.printCourseStatistics();
+					break;
+				case 10:
+					this.printStudentTranscript();
+					break;
+				case 0:
+					this.saveSystem();
+					break;
+				case -1:
+					System.out.println("Shutting Down SCRAME...");
+					System.out.println("BYE!");
+					System.exit(0);
 			}
 		} while (option != -1);
 	}
@@ -333,36 +339,6 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		}
 	}
 	
-	public void enterExamMark() {
-		if (this.studentsRegistered.size() == 0) {
-			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
-			return;
-		}
-		if (this.courseList.size() == 0) {
-			System.out.println("Sorry! There are currently no courses available for registering. Please add courses first.");
-			return;
-		}
-		
-		Course course = this.selectCourse();
-		if (course.hasWeightageInfo()) {
-			if (course.getRegisteredStudents().size() == 0) {
-				System.out.printf("Sorry! There are currently no student who has registered the course %s.\n", course.getCourseName());
-				return;
-			} else {
-				for (Student s: course.getRegisteredStudents()) {
-					Result r = s.getResultForCourse(course);
-					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); // Users may provide invalid input
-					int examMark = sc.nextInt();
-					Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
-					r.addComponent("Examination", exam);
-				}
-			}		
-		} else {
-			System.out.println("Sorry! This course currently does not have assessment component weightage information recorded in the system!");
-			System.out.printf("Please go to the main menu and enter the assessment component weightage information for %s.\n", course.getCourseName());
-		}	
-	}
-	
 	public void enterCourseworkMark() {
 		if (this.studentsRegistered.size() == 0) {
 			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
@@ -396,7 +372,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 							Subcomponent subcomponent = new Subcomponent(entry.getKey(), entry.getValue(), subcomponentMark);
 							coursework.addSubcomponent(subcomponent);
 						}
-						r.addComponent("Courework", coursework);
+						r.addComponent("Coursework", coursework);
 					}
 				}
 			}
@@ -404,6 +380,102 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			System.out.println("Sorry! This course currently does not have assessment component weightage information recorded in the system!");
 			System.out.printf("Please go to the main menu and enter the assessment component weightage information for %s.\n", course.getCourseName());
 		}
+		
+	}
+
+	public void enterExamMark() {
+		if (this.studentsRegistered.size() == 0) {
+			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
+			return;
+		}
+		if (this.courseList.size() == 0) {
+			System.out.println("Sorry! There are currently no courses available for entering mark. Please add courses first.");
+			return;
+		}
+		
+		Course course = this.selectCourse();
+		if (course.hasWeightageInfo()) {
+			if (course.getRegisteredStudents().size() == 0) {
+				System.out.printf("Sorry! There are currently no student who has registered the course %s.\n", course.getCourseName());
+				return;
+			} else {
+
+				for (Student s: course.getRegisteredStudents()) {
+					Result r = s.getResultForCourse(course);
+					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); // Users may provide invalid input
+					int examMark = sc.nextInt();
+					Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
+					r.addComponent("Examination", exam);
+				}
+			}		
+		} else {
+			System.out.println("Sorry! This course currently does not have assessment component weightage information recorded in the system!");
+			System.out.printf("Please go to the main menu and enter the assessment component weightage information for %s.\n", course.getCourseName());
+		}	
+	}
+
+	public void printCourseStatistics() {
+		// Check whether there is course/whether the course has weightage information/whether students have marks.
+		if (this.studentsRegistered.size() == 0) {
+			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
+			return;
+		}
+		if (this.courseList.size() == 0) {
+			System.out.println("Sorry! There are currently no courses in the system. Please add courses first.");
+			return;
+		}
+		
+		Course course = this.selectCourse();
+		int studentNumber = course.getRegisteredStudents().size();
+		
+		if (studentNumber == 0) {
+			System.out.println("Sorry, no one has registered this course yet!");
+		}
+		
+		double examMark = 0;
+		double courseworkMark = 0;
+		double totalMark = 0;
+		double highestMark = course.getRegisteredStudents().get(0).getResultForCourse(course).getTotalMark();
+		double lowestMark = course.getRegisteredStudents().get(0).getResultForCourse(course).getTotalMark();
+		
+		try {	
+			for (Student s: course.getRegisteredStudents()) {
+				Result r = s.getResultForCourse(course);
+				
+				if (r.getTotalMark() > highestMark) {
+					highestMark = r.getTotalMark();
+				}
+				
+				if (r.getTotalMark() < lowestMark) {
+					lowestMark = r.getTotalMark();
+				}
+				
+				examMark += r.getExaminationMark();
+				courseworkMark += r.getCourseworkMark();
+				totalMark += r.getTotalMark();
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Some students do not have a mark. Please make sure every student have a mark for both examination and coursework.");
+			return;
+		}
+		
+		System.out.printf("Statistical summary of course %s:\n", course.getCourseName());
+		System.out.printf("+-------------------------------------------------+---------+\n");
+		System.out.printf("| Number of students registered for the course    | %7d |\n", studentNumber);
+		System.out.printf("+-------------------------------------------------+---------+\n");
+		System.out.printf("| Examination grade percentage (%2d%%)              | %6.2f%% |\n", course.getExamWeightage(), examMark / studentNumber);
+		System.out.printf("+-------------------------------------------------+---------+\n");
+		System.out.printf("| Coursework grade percentage (%2d%%)               | %6.2f%% |\n", course.getCourseworkWeightage(), courseworkMark / studentNumber);
+		System.out.printf("+-------------------------------------------------+---------+\n");
+		System.out.printf("| Overall grade percentage                        | %6.2f%% |\n", totalMark / studentNumber);
+		System.out.printf("+-------------------------------------------------+---------+\n");
+		System.out.printf("| Highest overall grade                           | %6.2f%% |\n", highestMark);
+		System.out.printf("+-------------------------------------------------+---------+\n");
+		System.out.printf("| Lowest overall grade                            | %6.2f%% |\n", lowestMark);
+		System.out.printf("+-------------------------------------------------+---------+\n");
+	}
+	
+	public void printStudentTranscript() {
 		
 	}
 	
@@ -452,7 +524,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		return course;
 	}
 	
-	public void printAllCourses() {
+	private void printAllCourses() {
 		System.out.println("+-------------+--------------------+");
 		System.out.println("| Course Name | Course Coordinator |");
 		System.out.println("+-------------+--------------------+");
@@ -462,7 +534,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		System.out.println("+-------------+--------------------+");
 	}
 	
-	public void saveSystem() {
+	private void saveSystem() {
 		try {
 			FileOutputStream fileOut = new FileOutputStream("Sys.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -475,7 +547,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		}
 	}
 	
-	public static StudentCourseRegistrationAndMarkEntryApplication loadSystem() {
+	private static StudentCourseRegistrationAndMarkEntryApplication loadSystem() {
 		StudentCourseRegistrationAndMarkEntryApplication s = null;
 		try {
 			FileInputStream fileIn = new FileInputStream("Sys.ser");
@@ -492,4 +564,5 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			return s;
 		}
 	}
+
 }

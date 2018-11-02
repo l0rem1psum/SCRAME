@@ -8,7 +8,7 @@ public class Result implements Serializable{
 	
 	public Result() {}
 	
-	public double getTotal() {
+	public double getTotalMark() {
 		double totalMark = 0;
 		for (Examinable e: this.examinableAssessments.values()) {
 			totalMark += e.getMark();
@@ -16,11 +16,15 @@ public class Result implements Serializable{
 		return totalMark;
 	}
 	
-	public void addComponent(String componentName, Examinable e) {
-		this.examinableAssessments.put(componentName, e);
+	public double getExaminationMark() {
+		return this.examinableAssessments.get("Examination").getMark();
 	}
 	
-//	public Examinable getAssessmentComponent(String componentName) {
-//		return this.examinableAssessments.get(componentName);
-//	}
+	public double getCourseworkMark() {
+		return this.examinableAssessments.get("Coursework").getMark();
+	}
+	
+	public void addComponent(String componentName, Examinable e) {
+		this.examinableAssessments.put(componentName, e);
+	}	
 }
