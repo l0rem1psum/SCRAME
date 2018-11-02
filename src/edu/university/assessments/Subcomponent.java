@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Subcomponent implements Examinable, Serializable{
 
+	private static final long serialVersionUID = 3958562954203065378L;
 	private String subcomponentName;
 	private int subcomponentWeightage;
 	private double subcomponentRawMark;

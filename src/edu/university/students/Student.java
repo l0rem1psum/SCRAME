@@ -7,9 +7,10 @@ import java.io.*;
 import edu.university.courses.Course;
 
 public class Student implements Serializable{
+
+	private static final long serialVersionUID = -8006173904905537582L;
 	private String studentName;
 	private HashMap<Course, Result> coursesRegistered = new HashMap<>();
-	private static final long serialVersionUID = 9L;
 
 	public Student(String studentName) {
 		this.studentName = studentName;
@@ -32,11 +33,19 @@ public class Student implements Serializable{
 		return this.studentName;
 	}
 	
+	public int getNumberOfCoursesRegistered() {
+		return this.coursesRegistered.size();
+	}
+	
 	public void updateResult(Course c, Result r) {
 		this.coursesRegistered.put(c, r);
 	}
 	
 	public Result getResultForCourse(Course c) {
 		return this.coursesRegistered.get(c);
+	}
+	
+	public HashMap<Course, Result> getCoursesRegistered(){
+		return this.coursesRegistered;
 	}
 }

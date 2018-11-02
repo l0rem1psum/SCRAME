@@ -8,10 +8,11 @@ import java.util.*;
 import java.io.*;
 
 public class StudentCourseRegistrationAndMarkEntryApplication implements Serializable{
+
+	private static final long serialVersionUID = 8870011238997588030L;
 	private HashMap<String, Course> courseList = new HashMap<>();
 	private HashMap<String, Student> studentsRegistered = new HashMap<>();
 	private HashMap<String, Professor> teachingProfessors = new HashMap<>();
-	private static final long serialVersionUID = 1L;
 	
 	static final Scanner sc = new Scanner(System.in);
 
@@ -476,7 +477,18 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	}
 	
 	public void printStudentTranscript() {
-		
+		if (this.studentsRegistered.size() == 0) {
+			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
+			return;
+		}
+		Student student = this.selectStudent();
+		if (student.getNumberOfCoursesRegistered() == 0) {
+			System.out.printf("Sorry! The student %s has not registered any course.\n");
+			return;
+		}
+		for (HashMap.Entry<Course, Result> entry: student.getCoursesRegistered().entrySet()) {
+			entry.getValue().print(entry.getKey().getCourseName());
+		}
 	}
 	
 	private boolean studentExists(String studentName) {
@@ -522,6 +534,19 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		
 		Course course = this.getCourse(courseName);
 		return course;
+	}
+	
+	private Student selectStudent() {
+		System.out.println("Please enter the student name:");
+		String studentName = sc.next();
+		while(!this.studentExists(studentName)) {
+			System.out.println("Please make sure you only enter the student name that is already registered in the system!");
+			System.out.println("Please enter the student name:");
+			studentName = sc.next();
+		}
+		
+		Student student = this.getStudent(studentName);
+		return student;
 	}
 	
 	private void printAllCourses() {

@@ -3,8 +3,9 @@ package edu.university.courses;
 import edu.university.students.*;
 
 public class Laboratory extends CourseComponent{
-	private static final long serialVersionUID = 6L;
-	
+
+	private static final long serialVersionUID = 363149913616301192L;
+
 	public Laboratory(int numberOfGroups, int slotsPerGroup) {
 		super("Laboratory", numberOfGroups);
 		for (int i = 0; i < numberOfGroups; i++) {

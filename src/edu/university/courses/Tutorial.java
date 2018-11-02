@@ -3,8 +3,9 @@ package edu.university.courses;
 import edu.university.students.*;
 
 public class Tutorial extends CourseComponent{
-	private static final long serialVersionUID = 5L;
 	
+	private static final long serialVersionUID = -8786897404446090661L;
+
 	public Tutorial(int numberOfGroups, int slotsPerGroup) {
 		super("Tutorial", numberOfGroups);
 		for (int i = 0; i < numberOfGroups; i++) {

@@ -6,12 +6,13 @@ import edu.university.professors.*;
 import java.util.*;
 
 public class Course implements Serializable{
+
+	private static final long serialVersionUID = 4324846353865727203L;
 	private String courseName;
 	private Professor courseCoordinator;
 	private ArrayList<CourseComponent> courseComponents = new ArrayList<CourseComponent>();
 	private HashMap<String, Integer> assessmentComponents = new HashMap<>();
 	private HashMap<String, Integer> courseworkComponents = new HashMap<>();
-	private static final long serialVersionUID = 2L;
 	
 	public Course(String courseName, Professor courseCoordinator, int lectureVacancies) {
 		// Since all courses have lectures.

@@ -5,6 +5,7 @@ import java.util.*;
 
 public class MainComponent implements Examinable, Serializable{
 
+	private static final long serialVersionUID = -527313197269275481L;
 	private String componentName;
 	private int rawMark;
 	private int weightage;

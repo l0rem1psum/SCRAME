@@ -6,9 +6,10 @@ import java.util.*;
 
 
 public class Professor implements Serializable{
+
+	private static final long serialVersionUID = -4339808637498598313L;
 	private String name;
 	ArrayList<Course> coursesInCharge = new ArrayList<>();
-	private static final long serialVersionUID = 8L;
 	
 	public Professor(String name) {
 		this.name = name;

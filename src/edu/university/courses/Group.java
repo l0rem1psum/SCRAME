@@ -6,12 +6,13 @@ import edu.university.students.Student;
 import java.util.*;
 
 public class Group implements Serializable{
+
+	private static final long serialVersionUID = -2445920414804040966L;
 	private int numberOfSlots; 
 	// Equal to the sum of number of vacancies plus the number of registered students.
 	// Assuming this number is fixed and no changes will be made during the semester.
 	private int numberOfVacancies;
 	private List<Student> registeredStudents = null;
-	private static final long serialVersionUID = 7L;
 	
 	public Group(int numberOfSlots) {
 		this.numberOfSlots = numberOfSlots;
