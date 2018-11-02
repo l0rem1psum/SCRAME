@@ -1,8 +1,8 @@
 package edu.university.assessments;
 
+import java.io.Serializable;
 
-
-public class Subcomponent implements Examinable{
+public class Subcomponent implements Examinable, Serializable{
 
 	private String subcomponentName;
 	private int subcomponentWeightage;

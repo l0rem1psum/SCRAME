@@ -63,6 +63,9 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			case 6:
 				this.enterCourseWeightage();
 				break;
+			case 7:
+				this.enterCourseworkMark();
+				break;
 			case 8:
 				this.enterExamMark();
 				break;
