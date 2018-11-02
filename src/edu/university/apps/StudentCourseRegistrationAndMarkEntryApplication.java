@@ -143,7 +143,6 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				return true;
 			}
 		}
-
 	}
 
 	public boolean registerStudentForCourse() {
@@ -349,14 +348,10 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			} else {
 				for (Student s: course.getRegisteredStudents()) {
 					Result r = s.getResultForCourse(course);
-					System.out.printf("What is the examination score for %s? (Enter -1 to finish)\n", s.getStudentName()); // Users may provide invalid input
+					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); // Users may provide invalid input
 					int examMark = sc.nextInt();
-					if (examMark == -1) {
-						return;
-					} else {
-						Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
-						r.addComponent("Examination", exam);
-					}
+					Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
+					r.addComponent("Examination", exam);
 				}
 			}		
 		} else {
@@ -366,6 +361,46 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	}
 	
 	public void enterCourseworkMark() {
+		if (this.studentsRegistered.size() == 0) {
+			System.out.println("Sorry! There are currently no student records in the system. Please add the student before entering exam mark for him/her");
+			return;
+		}
+		if (this.courseList.size() == 0) {
+			System.out.println("Sorry! There are currently no courses available for registering. Please add courses first.");
+			return;
+		}
+		
+		Course course = this.selectCourse();
+		if (course.hasWeightageInfo()) {
+			if (course.getRegisteredStudents().size() == 0) {
+				System.out.printf("Sorry! There are currently no student who has registered the course %s.\n", course.getCourseName());
+				return;
+			} else {
+				for (Student s: course.getRegisteredStudents()) {
+					Result r = s.getResultForCourse(course);
+					if (!course.hasCourseworkSubcomponents()) {
+						System.out.printf("What is the coursework mark for %s?\n", s.getStudentName()); // Users may provide invalid input
+						int courseworkMark = sc.nextInt();
+						Examinable coursework = new MainComponent("Coursework", course.getCourseworkWeightage(), courseworkMark);
+						r.addComponent("Coursework", coursework);
+						return;
+					} else {
+						MainComponent coursework = new MainComponent("Coursework", course.getCourseworkWeightage());
+						
+						for (HashMap.Entry<String, Integer> entry : course.getCourseworkComponents().entrySet()) {
+							System.out.printf("What is the %s mark for %s?\n", entry.getKey(), s.getStudentName());
+							int subcomponentMark = sc.nextInt();
+							Subcomponent subcomponent = new Subcomponent(entry.getKey(), entry.getValue(), subcomponentMark);
+							coursework.addSubcomponent(subcomponent);
+						}
+						r.addComponent("Courework", coursework);
+					}
+				}
+			}
+		} else {
+			System.out.println("Sorry! This course currently does not have assessment component weightage information recorded in the system!");
+			System.out.printf("Please go to the main menu and enter the assessment component weightage information for %s.\n", course.getCourseName());
+		}
 		
 	}
 	

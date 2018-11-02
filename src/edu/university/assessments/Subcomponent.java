@@ -8,6 +8,12 @@ public class Subcomponent implements Examinable{
 	private int subcomponentWeightage;
 	private double subcomponentRawMark;
 	
+	public Subcomponent(String subcomponentName, int subcomponentWeightage, double subcomponentRawMark) {
+		this.subcomponentName = subcomponentName;
+		this.subcomponentWeightage = subcomponentWeightage;
+		this.subcomponentRawMark = subcomponentRawMark;
+	}
+	
 	@Override
 	public int getWeightage() {
 		return this.subcomponentWeightage;

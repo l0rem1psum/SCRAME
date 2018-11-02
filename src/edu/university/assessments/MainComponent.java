@@ -10,6 +10,11 @@ public class MainComponent implements Examinable, Serializable{
 	private int weightage;
 	private ArrayList<Subcomponent> subcomponents = new ArrayList<>();
 	
+	public MainComponent(String componentName, int weightage) {
+		this.componentName = componentName;
+		this.weightage = weightage;
+	}
+	
 	public MainComponent(String componentName, int weightage, int rawMark) {
 		this.componentName = componentName;
 		this.weightage = weightage;
@@ -50,5 +55,9 @@ public class MainComponent implements Examinable, Serializable{
 	
 	public void addSubcomponent(Subcomponent e) {
 		this.subcomponents.add(e);
+	}
+	
+	public ArrayList<Subcomponent> getSubcomponents(){
+		return this.subcomponents;
 	}
 }

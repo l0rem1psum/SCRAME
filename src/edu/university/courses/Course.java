@@ -71,6 +71,10 @@ public class Course implements Serializable{
 		return !this.assessmentComponents.isEmpty();
 	}
 	
+	public boolean hasCourseworkSubcomponents() {
+		return !this.courseworkComponents.isEmpty();
+	}
+	
 	public HashMap<String, Integer> getAssessmentComponents(){
 		return this.assessmentComponents;
 	}
@@ -145,6 +149,10 @@ public class Course implements Serializable{
 	
 	public int getExamWeightage() {
 		return this.assessmentComponents.get("Examination");
+	}
+	
+	public int getCourseworkWeightage() {
+		return this.assessmentComponents.get("Coursework");
 	}
 	
 	public String getCourseName() {

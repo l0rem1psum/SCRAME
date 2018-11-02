@@ -19,4 +19,8 @@ public class Result implements Serializable{
 	public void addComponent(String componentName, Examinable e) {
 		this.examinableAssessments.put(componentName, e);
 	}
+	
+//	public Examinable getAssessmentComponent(String componentName) {
+//		return this.examinableAssessments.get(componentName);
+//	}
 }
