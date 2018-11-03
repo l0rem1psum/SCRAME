@@ -44,6 +44,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			System.out.println("+------------------------------------------------------------------------------------------+");
 			System.out.println("Please enter your option:");
 			option = sc.nextInt();
+			sc.nextLine();
 			switch (option) {
 				case 1:
 					this.addStudent();
@@ -89,7 +90,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 
 	public boolean addStudent() {
 		System.out.println("What is the name of the student?");
-		String studentName = sc.next();
+		String studentName = sc.nextLine();
 		if (this.studentExists(studentName)) {
 			System.out.println("This student has already been added!");
 			return false;
@@ -102,50 +103,96 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 
 	public boolean addCourse() {
 		System.out.println("What is the name of the course?");
-		String courseName = sc.next();
+		String courseName = sc.nextLine();
 		if (this.courseExists(courseName)) {
 			System.out.println("This course has already been added!");
 			return false;
 		} else {
 			System.out.println("What is the name of the Professor?");
-			String profName = sc.next();
+			String profName = sc.nextLine();
 			Professor p = getProfessor(profName);
 
 			int lectureVacancies;
-			boolean haveTutorials, haveLabs;
+			boolean haveTutorials = false, haveLabs = false;
 			int numberOfTutorialGroups, numberOfLabGroups;
 			int slotsPerTutGroup, slotsPerLabGroup;
 			Course c;
+			
+			do {
+				System.out.println("How many vacancies are there for a lecture?");
+				while (!sc.hasNextInt()) {
+				System.out.println("That's not a valid number. Please enter again.");
+				sc.next();
+				}
+				lectureVacancies = sc.nextInt();
+				sc.nextLine();
+				} while (lectureVacancies <= 0);
 
-			System.out.println("How many vacancies are there for a lecture?");
-			lectureVacancies = sc.nextInt();
-
-			System.out.println("Does this course have tutorials? (true/false)");
-			haveTutorials = sc.nextBoolean();
+			System.out.println("Does this course have tutorials? (Type Y for yes, or any other character for no.)");
+			char tutorialOption = sc.next().charAt(0);
+			if (Character.toLowerCase(tutorialOption) == 'y') {
+			haveTutorials = true;
+			}
+			sc.nextLine();
 			if (haveTutorials != true) {
 				c = new Course(courseName, p, lectureVacancies);
 				this.courseList.put(courseName, c);
 				p.addCourse(c);
 				return true;
 			} else {
-				System.out.println("How many tutorial groups does this course have?");
-				numberOfTutorialGroups = sc.nextInt();
-				System.out.println("How many vacancies are there in one tutorial group?");
-				slotsPerTutGroup = sc.nextInt();
+				do {
+					System.out.println("How many tutorial groups does this course have?");
+					while (!sc.hasNextInt()) {
+					System.out.println("That's not a valid number. Please enter again.");
+					sc.next();
+					}
+					numberOfTutorialGroups = sc.nextInt();
+					sc.nextLine();
+					} while (numberOfTutorialGroups <= 0);
+				
+				do {
+					System.out.println("How many vacancies are there in one tutorial group?");
+					while (!sc.hasNextInt()) {
+					System.out.println("That's not a valid number. Please enter again.");
+					sc.next();
+					}
+					slotsPerTutGroup = sc.nextInt();
+					sc.nextLine();
+					} while (slotsPerTutGroup <= 0);
 			}
 
-			System.out.println("Does this course have labs? (true/false)");
-			haveLabs = sc.nextBoolean();
+			System.out.println("Does this course have labs? (Type Y for yes, or any other character for no.)");
+			char labOption = sc.next().charAt(0);
+			if (Character.toLowerCase(labOption) == 'y') {
+			haveLabs = true;
+			} else {
+			System.out.println("");
+			}
 			if (haveLabs != true) {
 				c = new Course(courseName, p, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup);
 				this.courseList.put(courseName, c);
 				p.addCourse(c);
 				return true;
 			} else {
+				do {
 				System.out.println("How many lab groups does this course have?");
+				while (!sc.hasNextInt()) {
+				System.out.println("That's not a valid number. Please enter again!");
+				sc.next();
+				}
 				numberOfLabGroups = sc.nextInt();
-				System.out.println("How many vacancies are there in one lab group?");
-				slotsPerLabGroup = sc.nextInt();
+				sc.nextLine();
+				} while (numberOfLabGroups <= 0);	
+				
+				do {
+					System.out.println("How many vacancies are there in one lab group?");
+					while (!sc.hasNextInt()) {
+					System.out.println("That's not a valid number. Please enter again.");
+					sc.next();
+					}
+					slotsPerLabGroup = sc.nextInt();
+					sc.nextLine();
+					} while (slotsPerLabGroup <= 0);
 				c = new Course(courseName, p, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup,
 						numberOfLabGroups, slotsPerLabGroup);
 				this.courseList.put(courseName, c);
@@ -166,7 +213,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		}
 		
 		System.out.println("Please enter the name of the student for which you want to register course for:");
-		String studentName = sc.next();
+		String studentName = sc.nextLine();
 
 		if (!this.studentExists(studentName)) {
 			System.out.println("The student you entered is currently not recorded in the system. Please add the student before registering courses for him/her.");
@@ -203,9 +250,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				// The course has lecture and tutorials or all 3 types (i.e. lectures, tutorials, labs)
 				System.out.println("Please enter the tutorial group number that the student wants to register:");
 				int tutGroup = sc.nextInt();
+				sc.nextLine();
 				while (course.getCourseComponents().get(1).getListOfGroups().get(tutGroup - 1).isFull()) {
 					System.out.println("The selected tutorial group has no more vacancies. Please choose again!");
 					tutGroup = sc.nextInt();
+					sc.nextLine();
 				}
 				
 				if (course.getCourseComponents().size() == 2) {
@@ -221,9 +270,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					// The course has all 3 types.
 					System.out.println("Please enter the lab group number that the student wants to register:");
 					int labGroup = sc.nextInt();
+					sc.nextLine();
 					while (course.getCourseComponents().get(2).getListOfGroups().get(labGroup - 1).isFull()) {
 						System.out.println("The selected lab group has no more vacancies. Please choose again!");
 						labGroup = sc.nextInt();
+						sc.nextLine();
 					}
 					course.registerStudent(s, tutGroup, labGroup);
 					s.addCourse(course);
@@ -264,9 +315,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		System.out.println("| 3 |  print students by lab groups      |");
 		System.out.println("+---+------------------------------------+");
 		int option = sc.nextInt();
+		sc.nextLine();
 		while(option != 1 && option != 2 && option != 3) {
 			System.out.println("Please check your option! Enter again:");
 			option = sc.nextInt();
+			sc.nextLine();
 		}
 		
 		switch(option) {
@@ -296,9 +349,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		
 		System.out.println("Please enter the exam weightage:");
 		int examWeightage = sc.nextInt();
+		sc.nextLine();
 		while(examWeightage <= 0 | examWeightage >= 100) {
 			System.out.println("Sorry! Please enter a valid exam weightage!");
 			examWeightage = sc.nextInt();
+			sc.nextLine();
 		}
 		assessmentComponents.put("Examination", examWeightage);
 		assessmentComponents.put("Coursework", 100 - examWeightage);
@@ -307,6 +362,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		boolean hasSubcomponents;
 		System.out.println("Does coursework have subcomponents? (true/false)");
 		hasSubcomponents = sc.nextBoolean();
+		sc.nextLine();
 		if (hasSubcomponents) {
 			int numberOfSubcomponents;
 			int subcomponentWeightage;
@@ -315,16 +371,17 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			
 			System.out.println("Please enter the number of subcomponents:");
 			numberOfSubcomponents = sc.nextInt(); // Users may enter -1, 0, 1
-			
+			sc.nextLine();
 			int weightageSum = 0;
 			while(weightageSum != 100) {
 				courseworkComponents = new HashMap<>();
 				weightageSum = 0;
 				for (int i = 0; i < numberOfSubcomponents; i++) {
 					System.out.printf("What is the name of subcomponent %d?\n", i + 1);
-					subcomponentName = sc.next();
+					subcomponentName = sc.nextLine();
 					System.out.printf("What is the weightage of %s (as a percentage of coursework)\n", subcomponentName);
 					subcomponentWeightage = sc.nextInt(); // Users may enter negative values.
+					sc.nextLine();
 					courseworkComponents.put(subcomponentName, subcomponentWeightage);
 				}
 				
@@ -361,6 +418,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					if (!course.hasCourseworkSubcomponents()) {
 						System.out.printf("What is the coursework mark for %s?\n", s.getStudentName()); // Users may provide invalid input
 						int courseworkMark = sc.nextInt();
+						sc.nextLine();
 						Examinable coursework = new MainComponent("Coursework", course.getCourseworkWeightage(), courseworkMark);
 						r.addComponent("Coursework", coursework);
 						return;
@@ -370,6 +428,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 						for (HashMap.Entry<String, Integer> entry : course.getCourseworkComponents().entrySet()) {
 							System.out.printf("What is the %s mark for %s?\n", entry.getKey(), s.getStudentName());
 							int subcomponentMark = sc.nextInt();
+							sc.nextLine();
 							Subcomponent subcomponent = new Subcomponent(entry.getKey(), entry.getValue(), subcomponentMark);
 							coursework.addSubcomponent(subcomponent);
 						}
@@ -405,6 +464,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					Result r = s.getResultForCourse(course);
 					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); // Users may provide invalid input
 					int examMark = sc.nextInt();
+					sc.nextLine();
 					Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
 					r.addComponent("Examination", exam);
 				}
@@ -524,12 +584,12 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 		System.out.println("Please choose the course listed below:");
 		this.printAllCourses();
 		
-		String courseName = sc.next();
+		String courseName = sc.nextLine();
 		while(!this.courseExists(courseName)) {
 			System.out.println("Please make sure you only enter the course name that is already registered in the system!");
 			System.out.println("Please choose the course listed below:");
 			this.printAllCourses();
-			courseName = sc.next();
+			courseName = sc.nextLine();
 		}
 		
 		Course course = this.getCourse(courseName);
@@ -538,11 +598,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	
 	private Student selectStudent() {
 		System.out.println("Please enter the student name:");
-		String studentName = sc.next();
+		String studentName = sc.nextLine();
 		while(!this.studentExists(studentName)) {
 			System.out.println("Please make sure you only enter the student name that is already registered in the system!");
 			System.out.println("Please enter the student name:");
-			studentName = sc.next();
+			studentName = sc.nextLine();
 		}
 		
 		Student student = this.getStudent(studentName);
