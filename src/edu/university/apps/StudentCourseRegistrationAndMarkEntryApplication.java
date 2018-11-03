@@ -561,7 +561,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	
 	private void saveSystem() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream("Sys.ser");
+			FileOutputStream fileOut = new FileOutputStream("res/Sys.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(this);
 			out.close();
@@ -575,7 +575,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	private static StudentCourseRegistrationAndMarkEntryApplication loadSystem() {
 		StudentCourseRegistrationAndMarkEntryApplication s = null;
 		try {
-			FileInputStream fileIn = new FileInputStream("Sys.ser");
+			FileInputStream fileIn = new FileInputStream("res/Sys.ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			s = (StudentCourseRegistrationAndMarkEntryApplication) in.readObject();
 			in.close();
