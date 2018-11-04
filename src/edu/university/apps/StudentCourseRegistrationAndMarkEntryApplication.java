@@ -1,11 +1,22 @@
 package edu.university.apps;
 
-import edu.university.students.*;
-import edu.university.professors.*;
-import edu.university.courses.*;
-import edu.university.assessments.*;
-import java.util.*;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import edu.university.assessments.ComponentType;
+import edu.university.assessments.Examinable;
+import edu.university.assessments.MainComponent;
+import edu.university.assessments.Result;
+import edu.university.assessments.Subcomponent;
+import edu.university.courses.Course;
+import edu.university.professors.Professor;
+import edu.university.students.Student;
 
 public class StudentCourseRegistrationAndMarkEntryApplication implements Serializable {
 
@@ -193,8 +204,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					slotsPerLabGroup = sc.nextInt();
 					sc.nextLine();
 				} while (slotsPerLabGroup <= 0);
-				c = new Course(courseName, p, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup,
-						numberOfLabGroups, slotsPerLabGroup);
+				c = new Course(courseName, p, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup, numberOfLabGroups, slotsPerLabGroup);
 				this.courseList.put(courseName, c);
 				p.addCourse(c);
 				return true;
@@ -262,7 +272,8 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					// The course has only lecture and tutorials
 					course.registerStudent(s, tutGroup);
 					s.addCourse(course);
-					System.out.printf("The student %s has successfully been registered to the course %s with tutorial group %d.\n", s.getStudentName(), course.getCourseName(), tutGroup);
+					System.out.printf("The student %s has successfully been registered to the course %s with tutorial group %d.\n", s.getStudentName(), course.getCourseName(),
+							tutGroup);
 					System.out.println("The new vacancies information is as follows:");
 					Course.printCourseSlotsHead();
 					course.printCourseSlots();
@@ -279,7 +290,8 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					}
 					course.registerStudent(s, tutGroup, labGroup);
 					s.addCourse(course);
-					System.out.printf("The student %s has successfully been registered to the course %s with tutorial group %d and lab group %d.\n", s.getStudentName(), course.getCourseName(), tutGroup, labGroup);
+					System.out.printf("The student %s has successfully been registered to the course %s with tutorial group %d and lab group %d.\n", s.getStudentName(),
+							course.getCourseName(), tutGroup, labGroup);
 					System.out.println("The new vacancies information is as follows:");
 					Course.printCourseSlotsHead();
 					course.printCourseSlots();
@@ -421,11 +433,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 						System.out.printf("What is the coursework mark for %s?\n", s.getStudentName()); // Users may enter invalid input
 						int courseworkMark = sc.nextInt();
 						sc.nextLine();
-						Examinable coursework = new MainComponent("Coursework", course.getCourseworkWeightage(), courseworkMark);
-						r.addComponent("Coursework", coursework);
+						Examinable coursework = new MainComponent(ComponentType.Coursework, course.getCourseworkWeightage(), courseworkMark);
+						r.addComponent(ComponentType.Coursework, coursework);
 						return;
 					} else {
-						MainComponent coursework = new MainComponent("Coursework", course.getCourseworkWeightage());
+						MainComponent coursework = new MainComponent(ComponentType.Coursework, course.getCourseworkWeightage());
 						for (HashMap.Entry<String, Integer> entry : course.getCourseworkComponents().entrySet()) {
 							System.out.printf("What is the %s mark for %s?\n", entry.getKey(), s.getStudentName());
 							int subcomponentMark = sc.nextInt();
@@ -433,7 +445,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 							Subcomponent subcomponent = new Subcomponent(entry.getKey(), entry.getValue(), subcomponentMark);
 							coursework.addSubcomponent(subcomponent);
 						}
-						r.addComponent("Coursework", coursework);
+						r.addComponent(ComponentType.Coursework, coursework);
 					}
 				}
 			}
@@ -466,8 +478,8 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); // Users may provide invalid input
 					int examMark = sc.nextInt();
 					sc.nextLine();
-					Examinable exam = new MainComponent("Examination", course.getExamWeightage(), examMark);
-					r.addComponent("Examination", exam);
+					Examinable exam = new MainComponent(ComponentType.Examination, course.getExamWeightage(), examMark);
+					r.addComponent(ComponentType.Examination, exam);
 				}
 			}
 		} else {

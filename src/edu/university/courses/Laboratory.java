@@ -1,8 +1,8 @@
 package edu.university.courses;
 
-import edu.university.students.*;
+import edu.university.students.Student;
 
-public class Laboratory extends CourseComponent{
+public class Laboratory extends CourseComponent {
 
 	private static final long serialVersionUID = 363149913616301192L;
 
@@ -12,7 +12,7 @@ public class Laboratory extends CourseComponent{
 			this.listOfGroups.set(i, new Group(slotsPerGroup));
 		}
 	}
-	
+
 	@Override
 	public boolean registerStudent(Student s, int groupNumber) {
 		return this.listOfGroups.get(groupNumber - 1).registerStudent(s);
@@ -21,7 +21,7 @@ public class Laboratory extends CourseComponent{
 	@Override
 	public boolean haveVacancies() {
 		boolean bn = false;
-		for (Group g: this.listOfGroups) {
+		for (Group g : this.listOfGroups) {
 			bn |= (!g.isFull());
 		}
 		return bn;

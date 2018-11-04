@@ -1,9 +1,9 @@
 package edu.university.courses;
 
-import edu.university.students.*;
+import edu.university.students.Student;
 
-public class Tutorial extends CourseComponent{
-	
+public class Tutorial extends CourseComponent {
+
 	private static final long serialVersionUID = -8786897404446090661L;
 
 	public Tutorial(int numberOfGroups, int slotsPerGroup) {
@@ -21,7 +21,7 @@ public class Tutorial extends CourseComponent{
 	@Override
 	public boolean haveVacancies() {
 		boolean bn = false;
-		for (Group g: this.listOfGroups) {
+		for (Group g : this.listOfGroups) {
 			bn |= (!g.isFull());
 		}
 		return bn;

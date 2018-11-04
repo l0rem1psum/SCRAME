@@ -3,8 +3,9 @@ package edu.university.courses;
 import edu.university.students.Student;
 
 public class Lecture extends CourseComponent {
-	// This Lecture class assumes there is only one Lecture group as it is normally the case.
-	
+	// This Lecture class assumes there is only one Lecture group as it is normally
+	// the case.
+
 	private static final long serialVersionUID = 3026535502854716051L;
 
 	public Lecture(int numberOfVacancies) {
@@ -15,7 +16,8 @@ public class Lecture extends CourseComponent {
 	@Override
 	public boolean registerStudent(Student s, int groupNumber) {
 		return this.listOfGroups.get(0).registerStudent(s);
-		// Since only 1 lecture group is assumed, students are always added to group 1 which is at index 0.
+		// Since only 1 lecture group is assumed, students are always added to group 1
+		// which is at index 0.
 	}
 
 	@Override

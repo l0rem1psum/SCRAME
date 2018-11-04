@@ -1,27 +1,27 @@
 package edu.university.assessments;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
 
-public class MainComponent implements Examinable, Serializable{
+public class MainComponent implements Examinable, Serializable {
 
 	private static final long serialVersionUID = -527313197269275481L;
 	private String componentName;
 	private int rawMark;
 	private int weightage;
 	private ArrayList<Subcomponent> subcomponents = new ArrayList<>();
-	
-	public MainComponent(String componentName, int weightage) {
-		this.componentName = componentName;
+
+	public MainComponent(ComponentType componentType, int weightage) {
+		this.componentName = componentType.name();
 		this.weightage = weightage;
 	}
-	
-	public MainComponent(String componentName, int weightage, int rawMark) {
-		this.componentName = componentName;
+
+	public MainComponent(ComponentType componentType, int weightage, int rawMark) {
+		this.componentName = componentType.name();
 		this.weightage = weightage;
 		this.rawMark = rawMark;
 	}
-	
+
 	@Override
 	public int getWeightage() {
 		return this.weightage;
@@ -35,30 +35,30 @@ public class MainComponent implements Examinable, Serializable{
 	@Override
 	public double getMark() {
 		if (!this.hasSubcomponents()) {
-			return (double)this.rawMark * (double)this.weightage / 100;
+			return (double) this.rawMark * (double) this.weightage / 100;
 		} else {
 			double mark = 0;
 			for (Subcomponent s : this.subcomponents) {
 				mark += s.getMark();
 			}
-			return mark * (double)this.weightage / 100;
+			return mark * this.weightage / 100;
 		}
 	}
 
 	@Override
 	public String getName() {
-		return this.componentName; 
+		return this.componentName;
 	}
 
-	public boolean hasSubcomponents(){
+	public boolean hasSubcomponents() {
 		return !this.subcomponents.isEmpty();
 	}
-	
+
 	public void addSubcomponent(Subcomponent e) {
 		this.subcomponents.add(e);
 	}
-	
-	public ArrayList<Subcomponent> getSubcomponents(){
+
+	public ArrayList<Subcomponent> getSubcomponents() {
 		return this.subcomponents;
 	}
 }

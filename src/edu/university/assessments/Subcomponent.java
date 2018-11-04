@@ -2,19 +2,19 @@ package edu.university.assessments;
 
 import java.io.Serializable;
 
-public class Subcomponent implements Examinable, Serializable{
+public class Subcomponent implements Examinable, Serializable {
 
 	private static final long serialVersionUID = 3958562954203065378L;
 	private String subcomponentName;
 	private int subcomponentWeightage;
 	private double subcomponentRawMark;
-	
+
 	public Subcomponent(String subcomponentName, int subcomponentWeightage, double subcomponentRawMark) {
 		this.subcomponentName = subcomponentName;
 		this.subcomponentWeightage = subcomponentWeightage;
 		this.subcomponentRawMark = subcomponentRawMark;
 	}
-	
+
 	@Override
 	public int getWeightage() {
 		return this.subcomponentWeightage;
@@ -27,7 +27,7 @@ public class Subcomponent implements Examinable, Serializable{
 
 	@Override
 	public double getMark() {
-		return (double)this.subcomponentRawMark * (double)this.subcomponentWeightage / 100;
+		return this.subcomponentRawMark * this.subcomponentWeightage / 100;
 	}
 
 	@Override
