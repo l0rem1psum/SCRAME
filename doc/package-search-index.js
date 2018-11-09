@@ -1,0 +1,1 @@
+packageSearchIndex = [{"m":"SCRAME","l":"edu.university.apps"},{"m":"SCRAME","l":"edu.university.assessments"},{"m":"SCRAME","l":"edu.university.courses"},{"m":"SCRAME","l":"edu.university.professors"},{"m":"SCRAME","l":"edu.university.students"}]
