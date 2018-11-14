@@ -7,6 +7,10 @@ import java.util.HashMap;
 import edu.university.professors.Professor;
 import edu.university.students.Student;
 
+/**
+ * Course class to add register students, print list of students registered, set
+ * coursework components and more.
+ */
 public class Course implements Serializable {
 
 	private static final long serialVersionUID = 4324846353865727203L;
@@ -16,6 +20,14 @@ public class Course implements Serializable {
 	private HashMap<String, Integer> assessmentComponents = new HashMap<>();
 	private HashMap<String, Integer> courseworkComponents = new HashMap<>();
 
+	/**
+	 * Contructor to create Course object based on parameters given. Creates
+	 * lectures for the course as all course should have lectures.
+	 * 
+	 * @param courseName
+	 * @param courseCoordinator
+	 * @param lectureVacancies
+	 */
 	public Course(String courseName, Professor courseCoordinator, int lectureVacancies) {
 		// Since all courses have lectures.
 		// Before constructing the Course object, ask whether there is tutorials or labs
@@ -27,7 +39,18 @@ public class Course implements Serializable {
 		courseComponents.add(lecture);
 	}
 
-	public Course(String courseName, Professor courseCoordinator, int lectureVacancies, int numberOfTutorialGroups, int slotsPerTutGroup) {
+	/**
+	 * Constructor to create Course object based on parameters given. Creates
+	 * tutorials for the course if they exist.
+	 * 
+	 * @param courseName
+	 * @param courseCoordinator
+	 * @param lectureVacancies
+	 * @param numberOfTutorials
+	 * @param slotsPerTutGroup
+	 */
+	public Course(String courseName, Professor courseCoordinator, int lectureVacancies, int numberOfTutorialGroups,
+			int slotsPerTutGroup) {
 		this(courseName, courseCoordinator, lectureVacancies);
 
 		CourseComponent tutorial = new Tutorial(numberOfTutorialGroups, slotsPerTutGroup);
@@ -35,7 +58,20 @@ public class Course implements Serializable {
 
 	}
 
-	public Course(String courseName, Professor courseCoordinator, int lectureVacancies, int numberOfTutorialGroups, int slotsPerTutGroup, int numberOfLabGroups, int slotsPerLabGroup) {
+	/**
+	 * Constructor to create Course object based on parameters given. Creates labs
+	 * for the course if they exist.
+	 * 
+	 * @param courseName
+	 * @param courseCoordinator
+	 * @param lectureVacancies
+	 * @param numberOfTutorials
+	 * @param slotsPerTutGroup
+	 * @param numberOfLabGroups
+	 * @param slotsPerLabGroup
+	 */
+	public Course(String courseName, Professor courseCoordinator, int lectureVacancies, int numberOfTutorialGroups,
+			int slotsPerTutGroup, int numberOfLabGroups, int slotsPerLabGroup) {
 		this(courseName, courseCoordinator, lectureVacancies, numberOfTutorialGroups, slotsPerTutGroup);
 
 		CourseComponent lab = new Laboratory(numberOfLabGroups, slotsPerLabGroup);
@@ -43,7 +79,8 @@ public class Course implements Serializable {
 	}
 
 	public void registerStudent(Student s) {
-		this.courseComponents.get(0).registerStudent(s, 1); // The second argument can be any number since it is not used.
+		this.courseComponents.get(0).registerStudent(s, 1); // The second argument can be any number since it is not
+															// used.
 	}
 
 	public void registerStudent(Student s, int tutGroup) {
@@ -103,7 +140,8 @@ public class Course implements Serializable {
 	}
 
 	public void printCourseSlots() {
-		System.out.printf("| %-11s | Lecture         | %4d/%-4d |\n", this.getCourseName(), this.getCourseComponents().get(0).getListOfGroups().get(0).getNumberOfVacancies(),
+		System.out.printf("| %-11s | Lecture         | %4d/%-4d |\n", this.getCourseName(),
+				this.getCourseComponents().get(0).getListOfGroups().get(0).getNumberOfVacancies(),
 				this.getCourseComponents().get(0).getListOfGroups().get(0).getNumberOfSlots());
 		if (this.getCourseComponents().size() == 1) {
 			System.out.println("+-------------+-----------------+-----------+");
@@ -116,7 +154,8 @@ public class Course implements Serializable {
 			// and tut or lect, tut and lab)
 			int i = 1;
 			for (Group group : this.getCourseComponents().get(1).getListOfGroups()) {
-				System.out.printf("|             | Tutorial Grp %-2d | %4d/%-4d |\n", i, group.getNumberOfVacancies(), group.getNumberOfSlots());
+				System.out.printf("|             | Tutorial Grp %-2d | %4d/%-4d |\n", i, group.getNumberOfVacancies(),
+						group.getNumberOfSlots());
 				i++;
 			}
 			if (this.getCourseComponents().size() == 2) {
@@ -130,7 +169,8 @@ public class Course implements Serializable {
 			System.out.println("|             +-----------------+-----------+");
 			int i = 1;
 			for (Group group : this.getCourseComponents().get(2).getListOfGroups()) {
-				System.out.printf("|             | Lab Grp %-2d      | %4d/%-4d |\n", i, group.getNumberOfVacancies(), group.getNumberOfSlots());
+				System.out.printf("|             | Lab Grp %-2d      | %4d/%-4d |\n", i, group.getNumberOfVacancies(),
+						group.getNumberOfSlots());
 				i++;
 			}
 			System.out.println("+-------------+-----------------+-----------+");
@@ -139,8 +179,10 @@ public class Course implements Serializable {
 
 	public ArrayList<Student> getRegisteredStudents() {
 		ArrayList<Student> registeredStudents = new ArrayList<>();
-		for (int i = 0; i < (this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfSlots() - this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfVacancies()); i++) {
-			registeredStudents.add(this.courseComponents.get(0).getListOfGroups().get(0).getRegisteredStudents().get(i));
+		for (int i = 0; i < (this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfSlots()
+				- this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfVacancies()); i++) {
+			registeredStudents
+					.add(this.courseComponents.get(0).getListOfGroups().get(0).getRegisteredStudents().get(i));
 		}
 		return registeredStudents;
 	}
