@@ -644,13 +644,15 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				System.out.printf("Sorry! There are currently no student who has registered the course %s.\n",
 						course.getCourseName());
 			} else {
-
 				for (Student s : course.getRegisteredStudents()) {
 					Result r = s.getResultForCourse(course);
-					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); // Users may
-																										// provide
-																										// invalid input
+					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); 
 					int examMark = sc.nextInt();
+					while(examMark < 0 || examMark > 100){
+						System.out.println("Please give a valid coursework mark for the student (i.e. between 0 and 100)");
+						System.out.println("Enter again please:");
+						examMark = sc.nextInt();
+					}
 					sc.nextLine();
 					Examinable exam = new MainComponent(ComponentType.Examination, course.getExamWeightage(), examMark);
 					r.addComponent(ComponentType.Examination, exam);
@@ -950,5 +952,4 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			return s;
 		}
 	}
-
 }
