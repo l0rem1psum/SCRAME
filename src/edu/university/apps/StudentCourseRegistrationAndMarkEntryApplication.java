@@ -88,6 +88,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			switch (option) {
 			case 1:
 				this.addStudent();
+				this.printAllStudents();
 				break;
 			case 2:
 				this.addCourse();
@@ -862,6 +863,19 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			System.out.printf("| %-11s | %-18s |\n", c.getCourseName(), c.getCourseCoordinatorName());
 		}
 		System.out.println("+-------------+--------------------+");
+	}
+
+	/**
+	 * This method is used to print all the students registered in the system.
+	 */
+	private void printAllStudents() {
+		System.out.println("+----------------------------------+");
+		System.out.println("|           Student Name           |");
+		System.out.println("+----------------------------------+");
+		for (Student s : this.studentsRegistered.values()) {
+			System.out.printf("| %-32s |\n", s.getStudentName());
+		}
+		System.out.println("+----------------------------------+");
 	}
 
 	/**
