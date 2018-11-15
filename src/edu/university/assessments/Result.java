@@ -67,10 +67,7 @@ public class Result implements Serializable {
 	 */
 	public void print(String courseName) {
 
-		if (this.examinableAssessments.size() != 2){ // Assuming all courses have only examination and coursework.
-			System.out.printf("The course %s does not have a result yet.\n", courseName);
-			return;
-		}
+		// TODO: Check whether the result has all components recorded
 
 		System.out.printf("+--------------------------------+----------+--------------------+----------------+\n");
 		System.out.printf("| %-10s                     | Raw Mark | Overall Percentage | Component Mark |\n",

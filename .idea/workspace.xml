@@ -19,8 +19,7 @@
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -52,12 +51,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-382">
               <caret line="468" column="80" selection-start-line="468" selection-start-column="80" selection-end-line="468" selection-end-column="80" />
+=======
+            <state relative-caret-position="234">
+              <caret line="470" column="58" selection-start-line="470" selection-start-column="58" selection-end-line="470" selection-end-column="58" />
+>>>>>>> parent of 161560b... Added condition checks
             </state>
           </provider>
         </entry>
@@ -86,10 +90,17 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-11" />
     <option name="width" value="1460" />
     <option name="height" value="1861" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1428" />
+    <option name="width" value="1463" />
+    <option name="height" value="1862" />
+>>>>>>> parent of 161560b... Added condition checks
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -120,6 +131,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -178,7 +190,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -235,17 +246,29 @@
       <workItem from="1542246490271" duration="1987000" />
       <workItem from="1542272421043" duration="911000" />
       <workItem from="1542274923887" duration="124000" />
+<<<<<<< HEAD
       <workItem from="1542285689945" duration="4436000" />
+=======
+>>>>>>> parent of 161560b... Added condition checks
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="0" width="834" height="1063" extended-state="1" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
+=======
+    <option name="totallyTimeSpent" value="3584000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1659" height="1071" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17926297" />
+>>>>>>> parent of 161560b... Added condition checks
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -254,7 +277,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2868048" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
+>>>>>>> parent of 161560b... Added condition checks
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -334,8 +361,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-382">
           <caret line="468" column="80" selection-start-line="468" selection-start-column="80" selection-end-line="468" selection-end-column="80" />
+=======
+        <state relative-caret-position="234">
+          <caret line="470" column="58" selection-start-line="470" selection-start-column="58" selection-end-line="470" selection-end-column="58" />
+>>>>>>> parent of 161560b... Added condition checks
         </state>
       </provider>
     </entry>
