@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afdc55e-bdc1-4c5e-a816-953e7177d529" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Project Report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Sys.ser" beforeDir="false" afterPath="$PROJECT_DIR$/res/Sys.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/university/assessments/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/assessments/Result.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,12 +25,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="4" />
+          <entry key="JAVA/" value="1" />
+          <entry key="java" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="6" />
+          <entry key="UML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -60,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="473" column="41" lean-forward="true" selection-start-line="473" selection-start-column="41" selection-end-line="473" selection-end-column="41" />
+            <state relative-caret-position="-382">
+              <caret line="468" column="80" selection-start-line="468" selection-start-column="80" selection-end-line="468" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -90,10 +86,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="1428" />
-    <option name="width" value="1465" />
-    <option name="height" value="1862" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-11" />
+    <option name="width" value="1460" />
+    <option name="height" value="1861" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -155,7 +151,28 @@
               <item name="SCRAME" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="university" type="462c0819:PsiDirectoryNode" />
+              <item name="assessments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCRAME" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCRAME" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="university" type="462c0819:PsiDirectoryNode" />
               <item name="courses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCRAME" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCRAME" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="university" type="462c0819:PsiDirectoryNode" />
+              <item name="professors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCRAME" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCRAME" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="university" type="462c0819:PsiDirectoryNode" />
+              <item name="students" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -167,8 +184,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542271142187" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542290596426" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -218,18 +235,17 @@
       <workItem from="1542246490271" duration="1987000" />
       <workItem from="1542272421043" duration="911000" />
       <workItem from="1542274923887" duration="124000" />
-      <workItem from="1542285689945" duration="304000" />
+      <workItem from="1542285689945" duration="4436000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3888000" />
+    <option name="totallyTimeSpent" value="8020000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1659" height="1071" extended-state="6" />
-    <editor active="true" />
+    <frame x="-6" y="0" width="834" height="1063" extended-state="1" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18113679" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -238,7 +254,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2868048" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -269,10 +285,57 @@
     <entry file="file://$PROJECT_DIR$/src/edu/university/courses/Course.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/university/courses/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement />
+          <nodes>
+            <node x="" y="">edu.university.professors.Professor</node>
+            <node x="" y="">edu.university.courses.Laboratory</node>
+            <node x="" y="">edu.university.courses.CourseComponent</node>
+            <node x="" y="">edu.university.courses.Group</node>
+            <node x="" y="">edu.university.students.Student</node>
+            <node x="" y="">edu.university.courses.Course</node>
+            <node x="" y="">edu.university.courses.Tutorial</node>
+            <node x="" y="">edu.university.courses.Lecture</node>
+            <node x="" y="">edu.university.apps.StudentCourseRegistrationAndMarkEntryApplication</node>
+            <node x="" y="">edu.university.assessments.Result</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.6999999999999997" x="825.5942668442678" y="1477.5714285714287" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/university/assessments/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="473" column="41" lean-forward="true" selection-start-line="473" selection-start-column="41" selection-end-line="473" selection-end-column="41" />
+        <state relative-caret-position="-382">
+          <caret line="468" column="80" selection-start-line="468" selection-start-column="80" selection-end-line="468" selection-end-column="80" />
         </state>
       </provider>
     </entry>
