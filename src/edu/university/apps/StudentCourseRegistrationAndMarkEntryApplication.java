@@ -18,6 +18,9 @@ import edu.university.courses.Course;
 import edu.university.professors.Professor;
 import edu.university.students.Student;
 
+/**
+ * Application class of the SCRAME system.
+ */
 public class StudentCourseRegistrationAndMarkEntryApplication implements Serializable {
 
 	private static final long serialVersionUID = 8870011238997588030L;

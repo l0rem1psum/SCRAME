@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4afdc55e-bdc1-4c5e-a816-953e7177d529" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Project Report.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCRAME.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SCRAME.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/ComponentType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/ComponentType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/Examinable.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/Examinable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/MainComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/MainComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/Subcomponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/Subcomponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/university/assessments/ComponentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/assessments/ComponentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/university/assessments/Examinable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/assessments/Examinable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/university/assessments/MainComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/assessments/MainComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/university/assessments/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/assessments/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/university/assessments/Subcomponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/assessments/Subcomponent.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12908">
-              <caret line="20" column="87" lean-forward="true" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+            <state relative-caret-position="-733">
+              <caret line="23" column="87" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -130,7 +138,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542249809210" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542249848165" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunDashboard">
@@ -178,27 +186,27 @@
       <workItem from="1542243659737" duration="98000" />
       <workItem from="1542243847485" duration="133000" />
       <workItem from="1542244029437" duration="331000" />
-      <workItem from="1542246490271" duration="892000" />
+      <workItem from="1542246490271" duration="1618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1454000" />
+    <option name="totallyTimeSpent" value="2180000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1659" height="1071" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1659" height="1071" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21798876" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21798876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -227,8 +235,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12908">
-          <caret line="20" column="87" lean-forward="true" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+        <state relative-caret-position="-733">
+          <caret line="23" column="87" selection-start-line="23" selection-start-column="87" selection-end-line="23" selection-end-column="87" />
         </state>
       </provider>
     </entry>
