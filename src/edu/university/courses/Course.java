@@ -124,14 +124,30 @@ public class Course implements Serializable {
 		this.assessmentComponents = assessmentComponents;
 	}
 
+	/**
+	 * This method is used to get the weigtage of coursework subcomponents.
+	 * @return a hashmap with key being the name of each coursework subcomponnet, value being their correspinding weightage (upon 100).
+	 */
 	public HashMap<String, Integer> getCourseworkComponents() {
 		return this.courseworkComponents;
 	}
 
+	/**
+	 * This method is used to set the weightage of subcomponents under the
+	 * assessment component coursework.
+	 * 
+	 * @param courseworkComponents A hashmap with key being the name of each
+	 *                             coursework subcomponent, value being their
+	 *                             corresponding weightage (upon 100).
+	 */
 	public void setCourseworkSubcomponents(HashMap<String, Integer> courseworkComponents) {
 		this.courseworkComponents = courseworkComponents;
 	}
 
+	/**
+	 * This method is used to print the formatted head of table for ease of reading
+	 * the output.
+	 */
 	public static void printCourseSlotsHead() {
 		System.out.println("+-------------+-----------------+-----------+");
 		System.out.println("| Course Name |      Group      | Vacancies |");
@@ -139,6 +155,12 @@ public class Course implements Serializable {
 		System.out.println("+-------------+-----------------+-----------+");
 	}
 
+	/**
+	 * This method is used to print the slots available for a course.
+	 * 
+	 * Depending on whether a course has lecture, tutorial or lab, the method will
+	 * print the number of available slots left for every group.
+	 */
 	public void printCourseSlots() {
 		System.out.printf("| %-11s | Lecture         | %4d/%-4d |\n", this.getCourseName(),
 				this.getCourseComponents().get(0).getListOfGroups().get(0).getNumberOfVacancies(),
@@ -177,6 +199,12 @@ public class Course implements Serializable {
 		}
 	}
 
+	/**
+	 * This method is used to get an ArrayList of all students registered for a
+	 * course.
+	 * 
+	 * @return an ArrayList of all students registered for a course.
+	 */
 	public ArrayList<Student> getRegisteredStudents() {
 		ArrayList<Student> registeredStudents = new ArrayList<>();
 		for (int i = 0; i < (this.courseComponents.get(0).getListOfGroups().get(0).getNumberOfSlots()
@@ -187,18 +215,38 @@ public class Course implements Serializable {
 		return registeredStudents;
 	}
 
+	/**
+	 * This method is used to get the weightage of the examination
+	 * 
+	 * @return the weightage of the examination.
+	 */
 	public int getExamWeightage() {
 		return this.assessmentComponents.get("Examination");
 	}
 
+	/**
+	 * This method is used to get the weightage of the coursework
+	 * 
+	 * @return the weight of the coursework.
+	 */
 	public int getCourseworkWeightage() {
 		return this.assessmentComponents.get("Coursework");
 	}
 
+	/**
+	 * This method is used to get the name of the course.
+	 * 
+	 * @return the name of the course.
+	 */
 	public String getCourseName() {
 		return this.courseName;
 	}
 
+	/**
+	 * This method is used to access the name of the course coordinator.
+	 * 
+	 * @return the name of the course coordinator.
+	 */
 	public String getCourseCoordinatorName() {
 		return this.courseCoordinator.getName();
 	}
