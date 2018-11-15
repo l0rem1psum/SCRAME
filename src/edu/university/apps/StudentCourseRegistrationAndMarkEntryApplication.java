@@ -467,6 +467,17 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	 * be prompt to under the weighage of each of the subcomponent.
 	 */
 	private void enterCourseWeightage() {
+		if (this.courseList.size() == 0) {
+			System.out.println(
+					"Sorry! There are currently no courses available. Please add courses first.");
+			return;
+		}
+		if (this.studentsRegistered.size() == 0) {
+			System.out.println(
+					"Sorry! There are currently no student records in the system. Please add the student first.");
+			return;
+		}
+
 		Course course = this.selectCourse();
 		HashMap<String, Integer> assessmentComponents = new HashMap<>();
 

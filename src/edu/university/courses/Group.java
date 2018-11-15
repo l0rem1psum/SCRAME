@@ -17,6 +17,11 @@ public class Group implements Serializable {
 	private int numberOfVacancies;
 	private List<Student> registeredStudents = null;
 
+	/**
+	 * The constructor for a Group object.
+	 * 
+	 * @param numberOfSlots The number of allocated slots for a group.
+	 */
 	public Group(int numberOfSlots) {
 		this.numberOfSlots = numberOfSlots;
 		this.numberOfVacancies = numberOfSlots;
@@ -27,6 +32,12 @@ public class Group implements Serializable {
 		// exception will be thrown.
 	}
 
+	/**
+	 * This method is used to register a student for a particular group.
+	 * 
+	 * @param s The student object.
+	 * @return true upon successful registration, false if the group is full.
+	 */
 	public boolean registerStudent(Student s) {
 		if (this.isFull()) {
 			return false;
@@ -39,6 +50,11 @@ public class Group implements Serializable {
 		}
 	}
 
+	/**
+	 * This method is used to print the list of students registered under the group.
+	 * 
+	 * @param groupName The name of the group.
+	 */
 	public void printStudentList(String groupName) {
 		if (this.numberOfSlots == this.numberOfVacancies) {
 			System.out.printf("| %-15s | %-25s |\n", groupName, new String("(No record)"));
@@ -53,18 +69,39 @@ public class Group implements Serializable {
 		System.out.println("+-----------------+---------------------------+");
 	}
 
+	/**
+	 * This method is used to check whether the group is full.
+	 * 
+	 * @return true if the group is full, false otherwise.
+	 */
 	public boolean isFull() {
 		return this.numberOfVacancies == 0;
 	}
 
+	/**
+	 * This method is used to get the number of available slots (vacancies) of a
+	 * group.
+	 * 
+	 * @return the number of vacancies of the group.
+	 */
 	public int getNumberOfVacancies() {
 		return this.numberOfVacancies;
 	}
 
+	/**
+	 * This method is used to get the total number of slots of a group.
+	 * 
+	 * @return the total number of slots of a group.
+	 */
 	public int getNumberOfSlots() {
 		return this.numberOfSlots;
 	}
 
+	/**
+	 * This method is used get the list of registered students under a group.
+	 * 
+	 * @return the list of registered students under a group.
+	 */
 	public List<Student> getRegisteredStudents() {
 		return this.registeredStudents;
 	}
