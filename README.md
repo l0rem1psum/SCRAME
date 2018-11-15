@@ -1,6 +1,9 @@
 # SCRAME
 CZ2002 Project - Student Course Registration And Mark Entry Application (SCRAME)
 
+## Javadoc
+The Javadoc of the project can be found [here](https://l0rem1psum.github.io/SCRAME/overview-summary.html)
+
 ## TODO
 * Improve UI/interactivity
 * Check edge cases
