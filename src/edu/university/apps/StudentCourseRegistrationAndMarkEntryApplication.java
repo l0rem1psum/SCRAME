@@ -39,8 +39,6 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	 * method. If the method return null object it means that there is no data or
 	 * the data file has been corrupted. Otherwise, it will read from the data file
 	 * and initialize system from there.
-	 * 
-	 * @param args
 	 */
 	public static void main(String[] args) {
 		StudentCourseRegistrationAndMarkEntryApplication SCRAME = loadSystem();
@@ -57,8 +55,6 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	/**
 	 * The method is used to execute the Student Course Registration and Mark Entry
 	 * Application (SCRAME)
-	 * 
-	 * @return Nothing.
 	 */
 	public void execute() {
 		int option;
@@ -292,6 +288,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	 *         <li>Student does not exist in the system</li>
 	 *         <li>Student already has registered course</li>
 	 *         <li>Course has no more vacancies</li>
+	 *         </ul>
 	 */
 	private boolean registerStudentForCourse() {
 		if (this.studentsRegistered.size() == 0) {

@@ -46,7 +46,7 @@ public class Course implements Serializable {
 	 * @param courseName        The name of the course.
 	 * @param courseCoordinator The professor/course coordinator of the course.
 	 * @param lectureVacancies  The number of slots for a lecture group.
-	 * @param numberOfTutorials The number of tutorial groups of the course.
+	 * @param numberOfTutorialGroups The number of tutorial groups of the course.
 	 * @param slotsPerTutGroup  The number of slots for a tutorial group.
 	 */
 	public Course(String courseName, Professor courseCoordinator, int lectureVacancies, int numberOfTutorialGroups,
@@ -65,7 +65,7 @@ public class Course implements Serializable {
 	 * @param courseName        The name of the course.
 	 * @param courseCoordinator The professor/course coordinator of the course.
 	 * @param lectureVacancies  The number of slots for a lecture group.
-	 * @param numberOfTutorials The number of tutorial groups of the course.
+	 * @param numberOfTutorialGroups The number of tutorial groups of the course.
 	 * @param slotsPerTutGroup  The number of slots for a tutorial group.
 	 * @param numberOfLabGroups The bumber of lab groups of the course.
 	 * @param slotsPerLabGroup  The number of slots for a lab group.

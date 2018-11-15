@@ -3,7 +3,6 @@ CZ2002 Project - Student Course Registration And Mark Entry Application (SCRAME)
 
 ## TODO
 * Improve UI/interactivity
-* Complete JavaDoc
 * Check edge cases
 
 ## UML Sequence Diagram
