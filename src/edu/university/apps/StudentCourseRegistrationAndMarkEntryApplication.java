@@ -137,6 +137,10 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 	private boolean addStudent() {
 		System.out.println("What is the name of the student?");
 		String studentName = sc.nextLine();
+		while(!studentName.matches("[ a-zA-Z]+")){
+		    System.out.println("Please enter a valid name! Enter again please:");
+		    studentName = sc.nextLine();
+        }
 		if (this.studentExists(studentName)) {
 			System.out.println("This student has already been added!");
 			return false;
@@ -179,7 +183,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 			return false;
 		} else {
 			System.out.println("What is the name of the Professor?");
-			String profName = sc.nextLine();
+            String profName = sc.nextLine();
+            while(!profName.matches("[ a-zA-Z]+")){
+                System.out.println("Please enter a valid name! Enter again please:");
+                profName = sc.nextLine();
+            }
 			Professor p = getProfessor(profName);
 
 			int lectureVacancies;
