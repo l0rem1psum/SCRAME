@@ -573,10 +573,13 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 				for (Student s : course.getRegisteredStudents()) {
 					Result r = s.getResultForCourse(course);
 					if (!course.hasCourseworkSubcomponents()) {
-						System.out.printf("What is the coursework mark for %s?\n", s.getStudentName()); // Users may
-																										// enter invalid
-																										// input
+						System.out.printf("What is the coursework mark for %s?\n", s.getStudentName());
 						int courseworkMark = sc.nextInt();
+						while(courseworkMark < 0 || courseworkMark > 100){
+							System.out.println("Please give a valid coursework mark for the student (i.e. between 0 and 100)");
+							System.out.println("Enter again please:");
+							courseworkMark = sc.nextInt();
+						}
 						sc.nextLine();
 						Examinable coursework = new MainComponent(ComponentType.Coursework,
 								course.getCourseworkWeightage(), courseworkMark);
@@ -588,6 +591,11 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 						for (HashMap.Entry<String, Integer> entry : course.getCourseworkComponents().entrySet()) {
 							System.out.printf("What is the %s mark for %s?\n", entry.getKey(), s.getStudentName());
 							int subcomponentMark = sc.nextInt();
+							while(subcomponentMark < 0 || subcomponentMark > 100){
+								System.out.println("Please give a valid mark for the student (i.e. between 0 and 100)");
+								System.out.println("Enter again please:");
+								subcomponentMark = sc.nextInt();
+							}
 							sc.nextLine();
 							Subcomponent subcomponent = new Subcomponent(entry.getKey(), entry.getValue(),
 									subcomponentMark);
