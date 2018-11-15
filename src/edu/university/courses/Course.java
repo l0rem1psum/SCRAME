@@ -203,6 +203,11 @@ public class Course implements Serializable {
 		return this.courseCoordinator.getName();
 	}
 
+	/**
+	 * The getter method to access the list of course components.
+	 * 
+	 * @return the list of course components.
+	 */
 	public ArrayList<CourseComponent> getCourseComponents() {
 		return this.courseComponents;
 	}
