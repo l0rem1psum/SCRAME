@@ -649,7 +649,7 @@ public class StudentCourseRegistrationAndMarkEntryApplication implements Seriali
 					System.out.printf("What is the examination mark for %s?\n", s.getStudentName()); 
 					int examMark = sc.nextInt();
 					while(examMark < 0 || examMark > 100){
-						System.out.println("Please give a valid coursework mark for the student (i.e. between 0 and 100)");
+						System.out.println("Please give a valid exam mark for the student (i.e. between 0 and 100)");
 						System.out.println("Enter again please:");
 						examMark = sc.nextInt();
 					}

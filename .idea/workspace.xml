@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4afdc55e-bdc1-4c5e-a816-953e7177d529" name="Default Changelist" comment="">
+    <list default="true" id="18ee2839-8af2-4288-a27d-8bd0332bf57b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/edu/university/apps/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/university/assessments/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/university/courses/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/university/professors/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/university/students/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Project Report.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML Sequence Diagram.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/UML Sequence Diagram.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/edu/university/assessments/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/edu/university/assessments/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/SCRAME-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/SCRAME-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/apps/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/apps/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/apps/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/apps/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/apps/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/apps/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/ComponentType.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/ComponentType.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/Examinable.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/Examinable.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/MainComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/MainComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/Result.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/Result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/Subcomponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/Subcomponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/assessments/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/assessments/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/Course.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/Course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/CourseComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/CourseComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/Group.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/Group.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/Laboratory.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/Laboratory.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/Lecture.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/Lecture.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/Tutorial.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/Tutorial.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/courses/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/courses/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/professors/Professor.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/professors/Professor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/professors/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/professors/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/professors/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/professors/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/professors/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/professors/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/students/Student.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/students/Student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/students/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/students/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/students/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/students/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/edu/university/students/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/edu/university/students/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/module-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/module-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/package-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/serialized-form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/docs/type-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,63 +88,46 @@
     <session id="-1579525307">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="3" />
-          <entry key="project.open.time.15" value="2" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="JAVA/" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="6" />
-          <entry key="UML" value="1" />
+          <entry key="JAVA" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="170" />
+          <entry key="java" value="394" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="170" />
+          <entry key="JAVA" value="394" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.spring.boot.run.usages" />
       <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.spring.boot.mvc.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="-382">
-              <caret line="468" column="80" selection-start-line="468" selection-start-column="80" selection-end-line="468" selection-end-column="80" />
-=======
-            <state relative-caret-position="234">
-              <caret line="470" column="58" selection-start-line="470" selection-start-column="58" selection-end-line="470" selection-end-column="58" />
->>>>>>> parent of 161560b... Added condition checks
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>profe</find>
-    </findStrings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,8 +135,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/edu/university/courses/Course.java" />
         <option value="$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java" />
+        <option value="$PROJECT_DIR$/src/edu/university/apps/package-info.java" />
+        <option value="$PROJECT_DIR$/src/edu/university/assessments/package-info.java" />
+        <option value="$PROJECT_DIR$/src/edu/university/courses/package-info.java" />
+        <option value="$PROJECT_DIR$/src/edu/university/professors/package-info.java" />
+        <option value="$PROJECT_DIR$/src/edu/university/students/package-info.java" />
+        <option value="$PROJECT_DIR$/src/module-info.java" />
       </list>
     </option>
   </component>
@@ -90,48 +151,16 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-<<<<<<< HEAD
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-11" />
-    <option name="width" value="1460" />
-    <option name="height" value="1861" />
-=======
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1428" />
-    <option name="width" value="1463" />
-    <option name="height" value="1862" />
->>>>>>> parent of 161560b... Added condition checks
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Android</id>
-          </State>
-          <State>
-            <id>CorrectnessLintAndroid</id>
-          </State>
-          <State>
-            <id>LintAndroid</id>
-          </State>
-          <State>
-            <id>PerformanceLintAndroid</id>
-          </State>
-          <State>
-            <id>UI Form</id>
-          </State>
-        </expanded-state>
-      </profile-state>
-    </entry>
+    <option name="x" value="1429" />
+    <option name="width" value="1462" />
+    <option name="height" value="1861" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -190,13 +219,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542290596426" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542353326638" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -235,71 +266,49 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4afdc55e-bdc1-4c5e-a816-953e7177d529" name="Default Changelist" comment="" />
-      <created>1542243645583</created>
+      <changelist id="18ee2839-8af2-4288-a27d-8bd0332bf57b" name="Default Changelist" comment="" />
+      <created>1542345179358</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1542243645583</updated>
-      <workItem from="1542243659737" duration="98000" />
-      <workItem from="1542243847485" duration="133000" />
-      <workItem from="1542244029437" duration="331000" />
-      <workItem from="1542246490271" duration="1987000" />
-      <workItem from="1542272421043" duration="911000" />
-      <workItem from="1542274923887" duration="124000" />
-<<<<<<< HEAD
-      <workItem from="1542285689945" duration="4436000" />
-=======
->>>>>>> parent of 161560b... Added condition checks
+      <updated>1542345179358</updated>
+      <workItem from="1542345188712" duration="3917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="8020000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="834" height="1063" extended-state="1" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0" />
-=======
-    <option name="totallyTimeSpent" value="3584000" />
+    <option name="totallyTimeSpent" value="3917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1659" height="1071" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17926297" />
->>>>>>> parent of 161560b... Added condition checks
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24984385" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-<<<<<<< HEAD
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2868048" />
-=======
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32972974" />
->>>>>>> parent of 161560b... Added condition checks
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44216216" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,67 +318,77 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/edu/university/courses/Course.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/university/courses/Group.java">
+    <entry file="file://$PROJECT_DIR$/src/edu/university/apps/package-info.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="27" column="76" selection-start-line="27" selection-start-column="76" selection-end-line="27" selection-end-column="76" />
+        <state relative-caret-position="20">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">edu.university.professors.Professor</node>
-            <node x="" y="">edu.university.courses.Laboratory</node>
-            <node x="" y="">edu.university.courses.CourseComponent</node>
-            <node x="" y="">edu.university.courses.Group</node>
-            <node x="" y="">edu.university.students.Student</node>
-            <node x="" y="">edu.university.courses.Course</node>
-            <node x="" y="">edu.university.courses.Tutorial</node>
-            <node x="" y="">edu.university.courses.Lecture</node>
-            <node x="" y="">edu.university.apps.StudentCourseRegistrationAndMarkEntryApplication</node>
-            <node x="" y="">edu.university.assessments.Result</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.6999999999999997" x="825.5942668442678" y="1477.5714285714287" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-            <Category>Properties</Category>
-            <Category>Inner Classes</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
+    <entry file="file://$PROJECT_DIR$/src/edu/university/assessments/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/university/courses/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/university/professors/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/university/students/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/university/assessments/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="636">
+          <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/university/apps/StudentCourseRegistrationAndMarkEntryApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="-382">
-          <caret line="468" column="80" selection-start-line="468" selection-start-column="80" selection-end-line="468" selection-end-column="80" />
-=======
-        <state relative-caret-position="234">
-          <caret line="470" column="58" selection-start-line="470" selection-start-column="58" selection-end-line="470" selection-end-column="58" />
->>>>>>> parent of 161560b... Added condition checks
+        <state relative-caret-position="549">
+          <caret line="654" column="21" lean-forward="true" selection-start-line="654" selection-start-column="21" selection-end-line="654" selection-end-column="21" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
